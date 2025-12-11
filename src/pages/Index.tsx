@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   FileJson,
   Lock,
@@ -11,6 +11,8 @@ import {
   Braces,
   Clock,
   Wrench,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Sidebar from "@/components/layout/Sidebar";
 import JsonFormatter from "@/components/tools/JsonFormatter";
@@ -39,8 +41,35 @@ const tools = [
 
 const Index = () => {
   const [activeTool, setActiveTool] = useState("json");
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const tabsRef = useRef<HTMLDivElement>(null);
 
   const ActiveComponent = tools.find((t) => t.id === activeTool)?.component || JsonFormatter;
+
+  const checkScroll = () => {
+    if (tabsRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    if (tabsRef.current) {
+      const scrollAmount = 200;
+      tabsRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -71,29 +100,65 @@ const Index = () => {
         {/* Tab Navigation */}
         <nav className="border-b border-border bg-card/30 backdrop-blur-sm sticky top-[73px] z-40">
           <div className="container mx-auto px-4">
-            <div className="flex overflow-x-auto scrollbar-thin py-2 gap-1">
-              {tools.map((tool) => {
-                const Icon = tool.icon;
-                const isActive = activeTool === tool.id;
-                return (
-                  <button
-                    key={tool.id}
-                    onClick={() => setActiveTool(tool.id)}
-                    className={`
-                      flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap
-                      transition-all duration-200 flex-shrink-0
-                      ${
-                        isActive
-                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                          : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                      }
-                    `}
-                  >
-                    <Icon className="w-4 h-4" />
-                    <span className="hidden sm:inline">{tool.name}</span>
-                  </button>
-                );
-              })}
+            <div className="relative flex items-center">
+              {/* Left Arrow */}
+              <button
+                onClick={() => scroll("left")}
+                className={`
+                  absolute left-0 z-10 w-8 h-8 flex items-center justify-center
+                  bg-card/90 backdrop-blur-sm border border-border rounded-full
+                  text-muted-foreground hover:text-foreground hover:bg-secondary
+                  transition-all duration-200 shadow-lg
+                  ${canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"}
+                `}
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              {/* Tabs Container */}
+              <div
+                ref={tabsRef}
+                onScroll={checkScroll}
+                className="flex overflow-x-auto scrollbar-thin py-2 gap-1 mx-10 scroll-smooth"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {tools.map((tool) => {
+                  const Icon = tool.icon;
+                  const isActive = activeTool === tool.id;
+                  return (
+                    <button
+                      key={tool.id}
+                      onClick={() => setActiveTool(tool.id)}
+                      className={`
+                        flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap
+                        transition-all duration-200 flex-shrink-0
+                        ${
+                          isActive
+                            ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
+                            : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                        }
+                      `}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="hidden sm:inline">{tool.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => scroll("right")}
+                className={`
+                  absolute right-0 z-10 w-8 h-8 flex items-center justify-center
+                  bg-card/90 backdrop-blur-sm border border-border rounded-full
+                  text-muted-foreground hover:text-foreground hover:bg-secondary
+                  transition-all duration-200 shadow-lg
+                  ${canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"}
+                `}
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </nav>
