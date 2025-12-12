@@ -182,7 +182,7 @@ const Index = () => {
           <div className="container mx-auto px-3 sm:px-4">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <p className="text-xs sm:text-sm text-muted-foreground">
-                © {new Date().getFullYear()} DevTools. Free developer tools • No data stored • Works offline
+                © {new Date().getFullYear()} DevTools. Free developer tools • No data stored
               </p>
               <nav className="flex items-center gap-4 sm:gap-6">
                 <RouterLink 
