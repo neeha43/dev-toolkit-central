@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   FileJson,
   Lock,
@@ -177,11 +178,33 @@ const Index = () => {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-border bg-card/30 py-3 sm:py-4">
-          <div className="container mx-auto px-3 sm:px-4 text-center">
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              Free developer tools • No data stored • Works offline
-            </p>
+        <footer className="border-t border-border bg-card/30 py-4 sm:py-6">
+          <div className="container mx-auto px-3 sm:px-4">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                © {new Date().getFullYear()} DevTools. Free developer tools • No data stored • Works offline
+              </p>
+              <nav className="flex items-center gap-4 sm:gap-6">
+                <RouterLink 
+                  to="/about" 
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  About
+                </RouterLink>
+                <RouterLink 
+                  to="/privacy" 
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Privacy Policy
+                </RouterLink>
+                <RouterLink 
+                  to="/contact" 
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Contact
+                </RouterLink>
+              </nav>
+            </div>
           </div>
         </footer>
       </div>
