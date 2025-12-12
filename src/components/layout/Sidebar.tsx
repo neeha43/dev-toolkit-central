@@ -18,7 +18,7 @@ const Sidebar = () => {
         <Button
           variant="outline"
           className="w-full bg-warning/10 border-warning/30 text-warning hover:bg-warning/20 hover:text-warning"
-          onClick={() => window.open('https://buymeacoffee.com', '_blank')}
+          onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
         >
           <Coffee className="w-4 h-4 mr-2" />
           Buy Me a Coffee
