@@ -84,42 +84,42 @@ const Index = () => {
       <div className="relative flex flex-col min-h-screen">
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                <Wrench className="w-5 h-5 text-primary-foreground" />
+          <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
+                <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">DevTools</h1>
-                <p className="text-xs text-muted-foreground">Developer Utilities</p>
+                <h1 className="text-lg sm:text-xl font-bold text-foreground">DevTools</h1>
+                <p className="text-[10px] sm:text-xs text-muted-foreground">Developer Utilities</p>
               </div>
             </div>
           </div>
         </header>
 
         {/* Tab Navigation */}
-        <nav className="border-b border-border bg-card/30 backdrop-blur-sm sticky top-[73px] z-40">
-          <div className="container mx-auto px-4">
+        <nav className="border-b border-border bg-card/30 backdrop-blur-sm sticky top-[57px] sm:top-[73px] z-40">
+          <div className="container mx-auto px-2 sm:px-4">
             <div className="relative flex items-center">
               {/* Left Arrow */}
               <button
                 onClick={() => scroll("left")}
                 className={`
-                  absolute left-0 z-10 w-8 h-8 flex items-center justify-center
+                  absolute left-0 z-10 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
                   bg-card/90 backdrop-blur-sm border border-border rounded-full
                   text-muted-foreground hover:text-foreground hover:bg-secondary
                   transition-all duration-200 shadow-lg
                   ${canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"}
                 `}
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
 
               {/* Tabs Container */}
               <div
                 ref={tabsRef}
                 onScroll={checkScroll}
-                className="flex overflow-x-auto scrollbar-thin py-2 gap-1 mx-10 scroll-smooth"
+                className="flex overflow-x-auto scrollbar-thin py-2 gap-1 mx-8 sm:mx-10 scroll-smooth"
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
               >
                 {tools.map((tool) => {
@@ -130,7 +130,7 @@ const Index = () => {
                       key={tool.id}
                       onClick={() => setActiveTool(tool.id)}
                       className={`
-                        flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium whitespace-nowrap
+                        flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap
                         transition-all duration-200 flex-shrink-0
                         ${
                           isActive
@@ -139,7 +139,7 @@ const Index = () => {
                         }
                       `}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       <span className="hidden sm:inline">{tool.name}</span>
                     </button>
                   );
@@ -150,22 +150,22 @@ const Index = () => {
               <button
                 onClick={() => scroll("right")}
                 className={`
-                  absolute right-0 z-10 w-8 h-8 flex items-center justify-center
+                  absolute right-0 z-10 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
                   bg-card/90 backdrop-blur-sm border border-border rounded-full
                   text-muted-foreground hover:text-foreground hover:bg-secondary
                   transition-all duration-200 shadow-lg
                   ${canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"}
                 `}
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>
         </nav>
 
         {/* Main Content */}
-        <main className="flex-1 container mx-auto px-4 py-6">
-          <div className="flex gap-6">
+        <main className="flex-1 container mx-auto px-3 sm:px-4 py-4 sm:py-6">
+          <div className="flex gap-4 lg:gap-6">
             {/* Tool Content */}
             <div className="flex-1 min-w-0">
               <ActiveComponent />
@@ -177,9 +177,9 @@ const Index = () => {
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-border bg-card/30 py-4">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-sm text-muted-foreground">
+        <footer className="border-t border-border bg-card/30 py-3 sm:py-4">
+          <div className="container mx-auto px-3 sm:px-4 text-center">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               Free developer tools • No data stored • Works offline
             </p>
           </div>
