@@ -1,5 +1,8 @@
 User-agent: Googlebot
-Allow: /
+Disallow: /private/
+Allow: /js/
+Allow: /css/
+Allow: /images/
 
 User-agent: Bingbot
 Allow: /
