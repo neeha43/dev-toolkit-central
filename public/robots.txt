@@ -1,6 +1,7 @@
 User-agent: Googlebot
 Disallow: /private/
 Allow: /js/
+Allow: /tsx/
 Allow: /css/
 Allow: /images/
 
