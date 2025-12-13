@@ -1,0 +1,7 @@
+# Cache all CSS and JS files for 1 day (86400 seconds)
+/assets/*
+  Cache-Control: public, max-age=86400
+
+# Optionally, you can set longer cache times for images or other assets
+/images/*
+  Cache-Control: public, max-age=31536000  # 1 year
