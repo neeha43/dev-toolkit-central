@@ -28,16 +28,16 @@ import JsBeautifier from "@/components/tools/JsBeautifier";
 import TimestampConverter from "@/components/tools/TimestampConverter";
 
 const tools = [
-  { id: "json", name: "JSON Formatter", icon: FileJson, component: JsonFormatter },
-  { id: "base64", name: "Base64", icon: Lock, component: Base64Tool },
-  { id: "url", name: "URL Encoder", icon: Link, component: UrlTool },
-  { id: "regex", name: "Regex Tester", icon: Search, component: RegexTester },
-  { id: "uuid", name: "UUID Generator", icon: Hash, component: UuidGenerator },
-  { id: "color", name: "Color Picker", icon: Palette, component: ColorPicker },
-  { id: "html", name: "HTML Beautifier", icon: Code, component: HtmlBeautifier },
-  { id: "css", name: "CSS Beautifier", icon: FileCode, component: CssBeautifier },
-  { id: "js", name: "JS Beautifier", icon: Braces, component: JsBeautifier },
-  { id: "timestamp", name: "Timestamp", icon: Clock, component: TimestampConverter },
+  { id: "json", name: "JSON Formatter", icon: FileJson, component: JsonFormatter, title: "JSON Formatter & Validator" },
+  { id: "base64", name: "Base64", icon: Lock, component: Base64Tool, title: "Base64 Encoder & Decoder" },
+  { id: "url", name: "URL Encoder", icon: Link, component: UrlTool, title: "URL Encoder & Decoder" },
+  { id: "regex", name: "Regex Tester", icon: Search, component: RegexTester, title: "Regex Tester & Validator" },
+  { id: "uuid", name: "UUID Generator", icon: Hash, component: UuidGenerator, title: "UUID Generator" },
+  { id: "color", name: "Color Picker", icon: Palette, component: ColorPicker, title: "Color Picker & Converter" },
+  { id: "html", name: "HTML Beautifier", icon: Code, component: HtmlBeautifier, title: "HTML Beautifier & Formatter" },
+  { id: "css", name: "CSS Beautifier", icon: FileCode, component: CssBeautifier, title: "CSS Beautifier & Formatter" },
+  { id: "js", name: "JS Beautifier", icon: Braces, component: JsBeautifier, title: "JavaScript Beautifier & Formatter" },
+  { id: "timestamp", name: "Timestamp", icon: Clock, component: TimestampConverter, title: "Unix Timestamp Converter" },
 ];
 
 const Index = () => {
@@ -59,6 +59,13 @@ const Index = () => {
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
     }
   };
+
+  // Update document title based on active tool
+  useEffect(() => {
+    const activeTitleObj = tools.find(t => t.id === activeTool);
+    const toolTitle = activeTitleObj?.title || "Developer Utilities";
+    document.title = `${toolTitle} - Free Online Tool | DevTools`;
+  }, [activeTool]);
 
   useEffect(() => {
     checkScroll();
