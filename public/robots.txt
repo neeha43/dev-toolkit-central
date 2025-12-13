@@ -1,9 +1,19 @@
 User-agent: Googlebot
-Disallow: /private/
+# Allow Googlebot to access compiled output in dist, build, or public folder
+Allow: /dist/
+Allow: /build/
+Allow: /public/
+# Allow Googlebot to access CSS, JS, and image files
+Allow: /assets/
 Allow: /js/
-Allow: /tsx/
 Allow: /css/
-Allow: /images/
+
+# Disallow unnecessary development or internal folders
+Disallow: /src/
+Disallow: /components/
+Disallow: /hooks/
+Disallow: /lib/
+Disallow: /pages/
 
 User-agent: Bingbot
 Allow: /
