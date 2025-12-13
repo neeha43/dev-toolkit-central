@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useSearchParams } from "react-router-dom";
 import {
   FileJson,
   Lock,
@@ -41,7 +41,11 @@ const tools = [
 ];
 
 const Index = () => {
-  const [activeTool, setActiveTool] = useState("json");
+  const [searchParams] = useSearchParams();
+  const toolFromUrl = searchParams.get("tool");
+  const initialTool = tools.some(t => t.id === toolFromUrl) ? toolFromUrl! : "json";
+  
+  const [activeTool, setActiveTool] = useState(initialTool);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const tabsRef = useRef<HTMLDivElement>(null);
