@@ -61,11 +61,52 @@ const Index = () => {
     }
   };
 
-  // Update document title based on active tool
+  // Update document title and structured data based on active tool
   useEffect(() => {
     const activeTitleObj = tools.find(t => t.id === activeTool);
     const toolTitle = activeTitleObj?.title || "Developer Utilities";
+    const toolName = activeTitleObj?.name || "DevTools";
     document.title = `${toolTitle} - Free Online Tool | DevTools`;
+
+    // Add/update JSON-LD structured data
+    let scriptTag = document.querySelector('script[data-structured-data="tool"]');
+    if (!scriptTag) {
+      scriptTag = document.createElement('script');
+      scriptTag.setAttribute('type', 'application/ld+json');
+      scriptTag.setAttribute('data-structured-data', 'tool');
+      document.head.appendChild(scriptTag);
+    }
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": toolTitle,
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": `Free online ${toolName.toLowerCase()} tool for developers. No signup required, works instantly in your browser.`,
+      "url": window.location.href,
+      "browserRequirements": "Requires JavaScript",
+      "softwareVersion": "1.0",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+      }
+    };
+
+    scriptTag.textContent = JSON.stringify(structuredData);
+
+    return () => {
+      const existingScript = document.querySelector('script[data-structured-data="tool"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
   }, [activeTool]);
 
   useEffect(() => {

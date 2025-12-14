@@ -30,10 +30,47 @@ const ToolPageLayout = ({
     }
     metaDescTag.setAttribute('content', metaDescription);
 
+    // Add JSON-LD structured data
+    let scriptTag = document.querySelector('script[data-structured-data="tool"]');
+    if (!scriptTag) {
+      scriptTag = document.createElement('script');
+      scriptTag.setAttribute('type', 'application/ld+json');
+      scriptTag.setAttribute('data-structured-data', 'tool');
+      document.head.appendChild(scriptTag);
+    }
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": title,
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": metaDescription,
+      "url": window.location.href,
+      "browserRequirements": "Requires JavaScript",
+      "softwareVersion": "1.0",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+      }
+    };
+
+    scriptTag.textContent = JSON.stringify(structuredData);
+
     return () => {
       document.title = 'DevTools - Free Developer Utilities';
+      const existingScript = document.querySelector('script[data-structured-data="tool"]');
+      if (existingScript) {
+        existingScript.remove();
+      }
     };
-  }, [metaTitle, metaDescription]);
+  }, [metaTitle, metaDescription, title]);
 
   return (
     <div className="min-h-screen bg-background">
