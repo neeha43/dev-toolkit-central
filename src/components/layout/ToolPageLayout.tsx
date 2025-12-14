@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { Wrench, ArrowLeft } from "lucide-react";
+import { Wrench, ArrowLeft, Coffee } from "lucide-react";
 import Sidebar from "./Sidebar";
 
 interface ToolPageLayoutProps {
@@ -59,13 +59,23 @@ const ToolPageLayout = ({
                   <p className="text-[10px] sm:text-xs text-muted-foreground">Developer Utilities</p>
                 </div>
               </RouterLink>
-              <RouterLink 
-                to="/" 
-                className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                <span className="hidden sm:inline">All Tools</span>
-              </RouterLink>
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Mobile Coffee Button */}
+                <button
+                  onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
+                  className="xl:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning/10 border border-warning/30 text-warning hover:bg-warning/20 transition-colors text-sm font-medium"
+                >
+                  <Coffee className="w-4 h-4" />
+                  <span className="hidden sm:inline">Buy Me a Coffee</span>
+                </button>
+                <RouterLink 
+                  to="/" 
+                  className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span className="hidden sm:inline">All Tools</span>
+                </RouterLink>
+              </div>
             </div>
           </div>
         </header>
