@@ -14,6 +14,7 @@ import {
   Wrench,
   ChevronLeft,
   ChevronRight,
+  Coffee,
 } from "lucide-react";
 import Sidebar from "@/components/layout/Sidebar";
 import JsonFormatter from "@/components/tools/JsonFormatter";
@@ -97,14 +98,24 @@ const Index = () => {
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
           <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
+                  <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+                </div>
+                <div>
+                  <h1 className="text-lg sm:text-xl font-bold text-foreground">DevTools</h1>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">Developer Utilities</p>
+                </div>
               </div>
-              <div>
-                <h1 className="text-lg sm:text-xl font-bold text-foreground">DevTools</h1>
-                <p className="text-[10px] sm:text-xs text-muted-foreground">Developer Utilities</p>
-              </div>
+              {/* Mobile Coffee Button */}
+              <button
+                onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
+                className="xl:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning/10 border border-warning/30 text-warning hover:bg-warning/20 transition-colors text-sm font-medium"
+              >
+                <Coffee className="w-4 h-4" />
+                <span className="hidden sm:inline">Buy Me a Coffee</span>
+              </button>
             </div>
           </div>
         </header>
