@@ -17,6 +17,7 @@ import {
   Coffee,
 } from "lucide-react";
 import Sidebar from "@/components/layout/Sidebar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import JsonFormatter from "@/components/tools/JsonFormatter";
 import Base64Tool from "@/components/tools/Base64Tool";
 import UrlTool from "@/components/tools/UrlTool";
@@ -149,14 +150,17 @@ const Index = () => {
                   <p className="text-[10px] sm:text-xs text-muted-foreground">Developer Utilities</p>
                 </div>
               </div>
-              {/* Mobile Coffee Button */}
-              <button
-                onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
-                className="xl:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning/10 border border-warning/30 text-warning hover:bg-warning/20 transition-colors text-sm font-medium"
-              >
-                <Coffee className="w-4 h-4" />
-                <span className="hidden sm:inline">Buy Me a Coffee</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                {/* Mobile Coffee Button */}
+                <button
+                  onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
+                  className="xl:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning/10 border border-warning/30 text-warning hover:bg-warning/20 transition-colors text-sm font-medium"
+                >
+                  <Coffee className="w-4 h-4" />
+                  <span className="hidden sm:inline">Buy Me a Coffee</span>
+                </button>
+              </div>
             </div>
           </div>
         </header>
