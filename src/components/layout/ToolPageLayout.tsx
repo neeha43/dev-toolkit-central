@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Wrench, ArrowLeft, Coffee } from "lucide-react";
 import Sidebar from "./Sidebar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface ToolPageLayoutProps {
   title: string;
@@ -97,6 +98,7 @@ const ToolPageLayout = ({
                 </div>
               </RouterLink>
               <div className="flex items-center gap-2 sm:gap-3">
+                <ThemeToggle />
                 {/* Mobile Coffee Button */}
                 <button
                   onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
