@@ -131,45 +131,21 @@ const Index = () => {
       />
 
       <div className="relative flex flex-col min-h-screen">
-        {/* Header */}
-        <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-          <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                  <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <h1 className="text-lg sm:text-xl font-bold text-foreground">DevTools</h1>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground">Developer Utilities</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {/* Mobile Coffee Button */}
-                <button
-                  onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
-                  className="xl:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-warning/10 border border-warning/30 text-warning hover:bg-warning/20 transition-colors text-sm font-medium"
-                >
-                  <Coffee className="w-4 h-4" />
-                  <span className="hidden sm:inline">Buy Me a Coffee</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </header>
 
         <main className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">
-            Dev Toolkit Central
-          </h1>
-          <p className="text-center mb-10 text-gray-600 text-lg">
-            A collection of free online developer tools to format, convert, and test your code.
-          </p>
+
+          {/* Page Header with Border */}
+          <div className="border-2 border-gray-300 rounded-xl p-6 mb-10 text-center bg-gray-50">
+            <h1 className="text-4xl font-bold mb-4 text-gray-900">Dev Toolkit Central</h1>
+            <p className="text-gray-600 text-lg">
+              A collection of free online developer tools to format, convert, and test your code.
+            </p>
+          </div>
 
           {/* Two-column layout: main grid + sidebar */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-            {/* Left Column: Tools Grid (span 3/4 on large screens) */}
+            {/* Left Column: Tools Grid */}
             <div className="lg:col-span-3 grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
               {tools.map((tool) => (
                 <div
@@ -191,27 +167,28 @@ const Index = () => {
               ))}
             </div>
 
-            {/* Right Column: Sidebar */}
+            {/* Right Column: Sticky Sidebar */}
             <div className="lg:col-span-1 flex flex-col gap-6">
-              {/* Buy Me a Coffee */}
-              <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center">
-                <h3 className="font-semibold mb-2 text-gray-800">Support Me</h3>
-                <a
-                  href="https://www.buymeacoffee.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-yellow-400 text-gray-900 font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition"
-                >
-                  Buy Me a Coffee ☕
-                </a>
-              </div>
+              <div className="lg:sticky lg:top-24">
+                {/* Sticky Sidebar Content */}
+                <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center transition-shadow duration-300 hover:shadow-lg">
+                  <h3 className="font-semibold mb-2 text-gray-800">Support Me</h3>
+                  <a
+                    href="https://buymeacoffee.com/neeharikakv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-yellow-400 text-gray-900 font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition"
+                  >
+                    Buy Me a Coffee ☕
+                  </a>
+                </div>
 
-              {/* Ads / Additional content */}
-              <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center">
-                <h3 className="font-semibold mb-2 text-gray-800">Advertisement</h3>
-                <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
-                  {/* Replace with your ad code or iframe */}
-                  <span className="text-gray-500">Ad Space</span>
+                {/* Ads / Additional content */}
+                <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center mt-6 transition-shadow duration-300 hover:shadow-lg">
+                  <h3 className="font-semibold mb-2 text-gray-800">Advertisement</h3>
+                  <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
+                    <span className="text-gray-500">Ad Space</span>
+                  </div>
                 </div>
               </div>
             </div>
