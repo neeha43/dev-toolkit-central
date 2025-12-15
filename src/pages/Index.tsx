@@ -17,7 +17,7 @@ import {
   Coffee,
 } from "lucide-react";
 import Sidebar from "@/components/layout/Sidebar";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
 import JsonFormatter from "@/components/tools/JsonFormatter";
 import Base64Tool from "@/components/tools/Base64Tool";
 import UrlTool from "@/components/tools/UrlTool";
@@ -151,7 +151,6 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <ThemeToggle />
                 {/* Mobile Coffee Button */}
                 <button
                   onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
