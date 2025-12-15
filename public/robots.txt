@@ -1,28 +1,18 @@
+User-agent: *
+Allow: /
+
+# Optional: allow Googlebot to fetch static resources (JS, CSS, images)
 User-agent: Googlebot
-# Allow Googlebot to access compiled output in dist, build, or public folder
-Allow: /dist/
-Allow: /build/
-Allow: /public/
-# Allow Googlebot to access CSS, JS, and image files
-Allow: /assets/
 Allow: /js/
 Allow: /css/
+Allow: /assets/
 
-# Disallow unnecessary development or internal folders
+# Disallow crawling of source code folders (if somehow exposed)
 Disallow: /src/
 Disallow: /components/
 Disallow: /hooks/
 Disallow: /lib/
 Disallow: /pages/
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
-Allow: /
+# Sitemap
+Sitemap: https://dev-toolkit-central.pages.dev/sitemap.xml

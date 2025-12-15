@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { FileJson, Minimize2, Maximize2, AlertCircle } from "lucide-react";
@@ -150,13 +151,56 @@ const JsonFormatter = () => {
   );
 
   return (
-    <ToolLayout
-      title="JSON Formatter"
-      description="Format, minify, and validate JSON data with syntax highlighting"
-      inputSection={inputSection}
-      output={output}
-      outputLabel="Formatted JSON"
-    />
+    <>
+    {/* SEO Meta Tags */}
+      <Helmet>
+        <title>JSON Formatter – Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Format, validate, and beautify JSON online with our free JSON Formatter tool."
+        />
+        <link
+          rel="canonical"
+          href="https://dev-toolkit-central.pages.dev/json-formatter"
+        />
+        <meta property="og:title" content="JSON Formatter – Dev Toolkit Central" />
+        <meta
+          property="og:description"
+          content="Format, validate, and beautify JSON online with our free JSON Formatter tool."
+        />
+        <meta
+          property="og:url"
+          content="https://dev-toolkit-central.pages.dev/json-formatter"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ToolLayout
+        title="JSON Formatter"
+        description="Format, minify, and validate JSON data with syntax highlighting"
+        inputSection={inputSection}
+        output={output}
+        outputLabel="Formatted JSON"
+      />
+      {/* Crawlable descriptive content for SEO */}
+      <section>
+        <h1>JSON Formatter</h1>
+        <p>
+          This JSON Formatter helps developers format, validate, and beautify JSON data instantly.
+        </p>
+        <h2>How to use:</h2>
+        <ol>
+          <li>Paste your JSON data</li>
+          <li>Click Format</li>
+          <li>Copy the formatted output</li>
+        </ol>
+        <h2>Features:</h2>
+        <ul>
+          <li>Beautify JSON</li>
+          <li>Validate JSON syntax</li>
+          <li>Minify JSON</li>
+        </ul>
+      </section>
+    </>
   );
 };
 
