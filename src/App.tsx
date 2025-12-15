@@ -10,7 +10,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 // Tool Pages
-import JsonFormatterPage from "./pages/tools/JsonFormatterPage";
+import JsonFormatterPage from "./components/tools/JsonFormatter";
 import Base64Page from "./pages/tools/Base64Page";
 import UrlEncoderPage from "./pages/tools/UrlEncoderPage";
 import RegexTesterPage from "./pages/tools/RegexTesterPage";
