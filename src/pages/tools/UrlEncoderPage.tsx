@@ -1,13 +1,19 @@
 import ToolPageLayout from "@/components/layout/ToolPageLayout";
 import UrlTool from "@/components/tools/UrlTool";
+import { getToolSEOData } from "@/lib/seoData";
+
+const seo = getToolSEOData("url")!;
 
 const UrlEncoderPage = () => {
   return (
     <ToolPageLayout
-      title="URL Encoder & Decoder"
-      description="Encode special characters for URLs or decode URL-encoded strings back to readable text."
-      metaTitle="URL Encoder & Decoder - Free Online Tool | DevTools"
-      metaDescription="Free online URL encoder and decoder. Encode special characters for safe URLs and decode URL-encoded strings. No data stored."
+      title={seo.title}
+      description={seo.description}
+      metaTitle={seo.metaTitle}
+      metaDescription={seo.metaDescription}
+      canonicalPath={seo.canonicalPath}
+      keywords={seo.keywords}
+      faqs={seo.faqs}
     >
       <UrlTool />
     </ToolPageLayout>

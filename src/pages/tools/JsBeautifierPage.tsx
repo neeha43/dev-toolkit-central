@@ -1,13 +1,19 @@
 import ToolPageLayout from "@/components/layout/ToolPageLayout";
 import JsBeautifier from "@/components/tools/JsBeautifier";
+import { getToolSEOData } from "@/lib/seoData";
+
+const seo = getToolSEOData("js")!;
 
 const JsBeautifierPage = () => {
   return (
     <ToolPageLayout
-      title="JavaScript Beautifier & Formatter"
-      description="Format and beautify your JavaScript code with proper indentation and structure."
-      metaTitle="JavaScript Beautifier & Formatter - Free Online Tool | DevTools"
-      metaDescription="Free online JavaScript beautifier and formatter. Format, indent, and beautify JS code instantly. Clean up minified JavaScript. No data stored."
+      title={seo.title}
+      description={seo.description}
+      metaTitle={seo.metaTitle}
+      metaDescription={seo.metaDescription}
+      canonicalPath={seo.canonicalPath}
+      keywords={seo.keywords}
+      faqs={seo.faqs}
     >
       <JsBeautifier />
     </ToolPageLayout>

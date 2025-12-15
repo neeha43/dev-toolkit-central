@@ -1,14 +1,17 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Wrench, ArrowLeft, Coffee } from "lucide-react";
 import Sidebar from "./Sidebar";
-
+import SEOHead, { generateToolSchema } from "@/components/SEOHead";
 
 interface ToolPageLayoutProps {
   title: string;
   description: string;
   metaTitle: string;
   metaDescription: string;
+  canonicalPath: string;
+  keywords?: string;
+  faqs?: Array<{ question: string; answer: string }>;
   children: ReactNode;
 }
 
@@ -17,64 +20,28 @@ const ToolPageLayout = ({
   description,
   metaTitle,
   metaDescription,
+  canonicalPath,
+  keywords,
+  faqs,
   children,
 }: ToolPageLayoutProps) => {
-  useEffect(() => {
-    document.title = metaTitle;
-    
-    // Update meta description
-    let metaDescTag = document.querySelector('meta[name="description"]');
-    if (!metaDescTag) {
-      metaDescTag = document.createElement('meta');
-      metaDescTag.setAttribute('name', 'description');
-      document.head.appendChild(metaDescTag);
-    }
-    metaDescTag.setAttribute('content', metaDescription);
-
-    // Add JSON-LD structured data
-    let scriptTag = document.querySelector('script[data-structured-data="tool"]');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.setAttribute('type', 'application/ld+json');
-      scriptTag.setAttribute('data-structured-data', 'tool');
-      document.head.appendChild(scriptTag);
-    }
-
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": title,
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "description": metaDescription,
-      "url": window.location.href,
-      "browserRequirements": "Requires JavaScript",
-      "softwareVersion": "1.0",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "150"
-      }
-    };
-
-    scriptTag.textContent = JSON.stringify(structuredData);
-
-    return () => {
-      document.title = 'DevTools - Free Developer Utilities';
-      const existingScript = document.querySelector('script[data-structured-data="tool"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, [metaTitle, metaDescription, title]);
+  const structuredData = generateToolSchema(
+    title,
+    metaDescription,
+    `https://devtools.lovable.app${canonicalPath}`
+  );
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={metaTitle}
+        description={metaDescription}
+        canonicalPath={canonicalPath}
+        keywords={keywords}
+        structuredData={structuredData}
+        faqData={faqs}
+      />
+
       {/* Background gradient effect */}
       <div 
         className="fixed inset-0 pointer-events-none"
@@ -128,12 +95,12 @@ const ToolPageLayout = ({
 
         {/* Main Content */}
         <main className="flex-1 container mx-auto px-3 sm:px-4 py-4 sm:py-6">
-          <div className="flex gap-4 lg:gap-6">
+          <article className="flex gap-4 lg:gap-6">
             <div className="flex-1 min-w-0">
               {children}
             </div>
             <Sidebar />
-          </div>
+          </article>
         </main>
 
         {/* Footer */}
@@ -143,7 +110,7 @@ const ToolPageLayout = ({
               <p className="text-xs sm:text-sm text-muted-foreground">
                 © {new Date().getFullYear()} DevTools. Free developer tools • No data stored
               </p>
-              <nav className="flex items-center gap-4 sm:gap-6">
+              <nav className="flex items-center gap-4 sm:gap-6" aria-label="Footer navigation">
                 <RouterLink to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
                   All Tools
                 </RouterLink>
