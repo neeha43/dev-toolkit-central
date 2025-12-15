@@ -1,13 +1,19 @@
 import ToolPageLayout from "@/components/layout/ToolPageLayout";
 import Base64Tool from "@/components/tools/Base64Tool";
+import { getToolSEOData } from "@/lib/seoData";
+
+const seo = getToolSEOData("base64")!;
 
 const Base64Page = () => {
   return (
     <ToolPageLayout
-      title="Base64 Encoder & Decoder"
-      description="Encode text to Base64 or decode Base64 strings back to plain text instantly."
-      metaTitle="Base64 Encoder & Decoder - Free Online Tool | DevTools"
-      metaDescription="Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 strings instantly. No data stored, privacy-focused."
+      title={seo.title}
+      description={seo.description}
+      metaTitle={seo.metaTitle}
+      metaDescription={seo.metaDescription}
+      canonicalPath={seo.canonicalPath}
+      keywords={seo.keywords}
+      faqs={seo.faqs}
     >
       <Base64Tool />
     </ToolPageLayout>

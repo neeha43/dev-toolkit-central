@@ -17,6 +17,8 @@ import {
   Coffee,
 } from "lucide-react";
 import Sidebar from "@/components/layout/Sidebar";
+import SEOHead, { generateToolSchema } from "@/components/SEOHead";
+import { homepageSEO, getToolSEOData } from "@/lib/seoData";
 
 import JsonFormatter from "@/components/tools/JsonFormatter";
 import Base64Tool from "@/components/tools/Base64Tool";
@@ -53,6 +55,7 @@ const Index = () => {
   const tabsRef = useRef<HTMLDivElement>(null);
 
   const ActiveComponent = tools.find((t) => t.id === activeTool)?.component || JsonFormatter;
+  const activeToolData = getToolSEOData(activeTool);
 
   const checkScroll = () => {
     if (tabsRef.current) {
@@ -61,54 +64,6 @@ const Index = () => {
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
     }
   };
-
-  // Update document title and structured data based on active tool
-  useEffect(() => {
-    const activeTitleObj = tools.find(t => t.id === activeTool);
-    const toolTitle = activeTitleObj?.title || "Developer Utilities";
-    const toolName = activeTitleObj?.name || "DevTools";
-    document.title = `${toolTitle} - Free Online Tool | DevTools`;
-
-    // Add/update JSON-LD structured data
-    let scriptTag = document.querySelector('script[data-structured-data="tool"]');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.setAttribute('type', 'application/ld+json');
-      scriptTag.setAttribute('data-structured-data', 'tool');
-      document.head.appendChild(scriptTag);
-    }
-
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": toolTitle,
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "description": `Free online ${toolName.toLowerCase()} tool for developers. No signup required, works instantly in your browser.`,
-      "url": window.location.href,
-      "browserRequirements": "Requires JavaScript",
-      "softwareVersion": "1.0",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "150"
-      }
-    };
-
-    scriptTag.textContent = JSON.stringify(structuredData);
-
-    return () => {
-      const existingScript = document.querySelector('script[data-structured-data="tool"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, [activeTool]);
 
   useEffect(() => {
     checkScroll();
@@ -126,8 +81,29 @@ const Index = () => {
     }
   };
 
+  // Dynamic SEO based on active tool
+  const currentTitle = activeToolData 
+    ? `${activeToolData.title} - Free Online Tool | DevTools`
+    : homepageSEO.metaTitle;
+  const currentDescription = activeToolData?.metaDescription || homepageSEO.metaDescription;
+  const currentKeywords = activeToolData?.keywords || homepageSEO.keywords;
+  const structuredData = generateToolSchema(
+    activeToolData?.title || "DevTools",
+    currentDescription,
+    `https://devtools.lovable.app${activeToolData?.canonicalPath || "/"}`
+  );
+
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={currentTitle}
+        description={currentDescription}
+        canonicalPath={homepageSEO.canonicalPath}
+        keywords={currentKeywords}
+        structuredData={structuredData}
+        faqData={activeToolData?.faqs}
+      />
+
       {/* Background gradient effect */}
       <div 
         className="fixed inset-0 pointer-events-none"
@@ -165,12 +141,13 @@ const Index = () => {
         </header>
 
         {/* Tab Navigation */}
-        <nav className="border-b border-border bg-card/30 backdrop-blur-sm sticky top-[57px] sm:top-[73px] z-40">
+        <nav className="border-b border-border bg-card/30 backdrop-blur-sm sticky top-[57px] sm:top-[73px] z-40" aria-label="Tool selection">
           <div className="container mx-auto px-2 sm:px-4">
             <div className="relative flex items-center">
               {/* Left Arrow */}
               <button
                 onClick={() => scroll("left")}
+                aria-label="Scroll left"
                 className={`
                   absolute left-0 z-10 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
                   bg-card/90 backdrop-blur-sm border border-border rounded-full
@@ -186,6 +163,7 @@ const Index = () => {
               <div
                 ref={tabsRef}
                 onScroll={checkScroll}
+                role="tablist"
                 className="flex overflow-x-auto scrollbar-thin py-2 gap-1 mx-8 sm:mx-10 scroll-smooth"
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
               >
@@ -195,6 +173,8 @@ const Index = () => {
                   return (
                     <button
                       key={tool.id}
+                      role="tab"
+                      aria-selected={isActive}
                       onClick={() => setActiveTool(tool.id)}
                       className={`
                         flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap
@@ -216,6 +196,7 @@ const Index = () => {
               {/* Right Arrow */}
               <button
                 onClick={() => scroll("right")}
+                aria-label="Scroll right"
                 className={`
                   absolute right-0 z-10 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center
                   bg-card/90 backdrop-blur-sm border border-border rounded-full
@@ -232,15 +213,15 @@ const Index = () => {
 
         {/* Main Content */}
         <main className="flex-1 container mx-auto px-3 sm:px-4 py-4 sm:py-6">
-          <div className="flex gap-4 lg:gap-6">
+          <article className="flex gap-4 lg:gap-6">
             {/* Tool Content */}
-            <div className="flex-1 min-w-0">
+            <section className="flex-1 min-w-0" role="tabpanel">
               <ActiveComponent />
-            </div>
+            </section>
 
             {/* Sidebar */}
             <Sidebar />
-          </div>
+          </article>
         </main>
 
         {/* Footer */}
@@ -250,7 +231,7 @@ const Index = () => {
               <p className="text-xs sm:text-sm text-muted-foreground">
                 © {new Date().getFullYear()} DevTools. Free developer tools • No data stored
               </p>
-              <nav className="flex items-center gap-4 sm:gap-6">
+              <nav className="flex items-center gap-4 sm:gap-6" aria-label="Footer navigation">
                 <RouterLink 
                   to="/about" 
                   className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
