@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -25,39 +24,37 @@ import TimestampConverterPage from "./pages/tools/TimestampConverterPage";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            
-            {/* Tool Pages */}
-            <Route path="/json-formatter" element={<JsonFormatterPage />} />
-            <Route path="/base64-encoder" element={<Base64Page />} />
-            <Route path="/url-encoder" element={<UrlEncoderPage />} />
-            <Route path="/regex-tester" element={<RegexTesterPage />} />
-            <Route path="/uuid-generator" element={<UuidGeneratorPage />} />
-            <Route path="/color-picker" element={<ColorPickerPage />} />
-            <Route path="/html-beautifier" element={<HtmlBeautifierPage />} />
-            <Route path="/css-beautifier" element={<CssBeautifierPage />} />
-            <Route path="/js-beautifier" element={<JsBeautifierPage />} />
-            <Route path="/timestamp-converter" element={<TimestampConverterPage />} />
-            
-            {/* Info Pages */}
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ThemeProvider>
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          
+          {/* Tool Pages */}
+          <Route path="/json-formatter" element={<JsonFormatterPage />} />
+          <Route path="/base64-encoder" element={<Base64Page />} />
+          <Route path="/url-encoder" element={<UrlEncoderPage />} />
+          <Route path="/regex-tester" element={<RegexTesterPage />} />
+          <Route path="/uuid-generator" element={<UuidGeneratorPage />} />
+          <Route path="/color-picker" element={<ColorPickerPage />} />
+          <Route path="/html-beautifier" element={<HtmlBeautifierPage />} />
+          <Route path="/css-beautifier" element={<CssBeautifierPage />} />
+          <Route path="/js-beautifier" element={<JsBeautifierPage />} />
+          <Route path="/timestamp-converter" element={<TimestampConverterPage />} />
+          
+          {/* Info Pages */}
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
 export default App;
