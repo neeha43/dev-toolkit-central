@@ -1,34 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link as RouterLink, useSearchParams } from "react-router-dom";
-import {
-  FileJson,
-  Lock,
-  Link,
-  Search,
-  Hash,
-  Palette,
-  Code,
-  FileCode,
-  Braces,
-  Clock,
-  Wrench,
-  Coffee,
-} from "lucide-react";
-import Sidebar from "@/components/layout/Sidebar";
-import SEOHead, { generateToolSchema } from "@/components/SEOHead";
-import { homepageSEO, getToolSEOData } from "@/lib/seoData";
-
-import JsonFormatter from "@/components/tools/JsonFormatter";
-import Base64Tool from "@/components/tools/Base64Tool";
-import UrlTool from "@/components/tools/UrlTool";
-import RegexTester from "@/components/tools/RegexTester";
-import UuidGenerator from "@/components/tools/UuidGenerator";
-import ColorPicker from "@/components/tools/ColorPicker";
-import HtmlBeautifier from "@/components/tools/HtmlBeautifier";
-import CssBeautifier from "@/components/tools/CssBeautifier";
-import JsBeautifier from "@/components/tools/JsBeautifier";
-import TimestampConverter from "@/components/tools/TimestampConverter";
+import { FaCoffee } from "react-icons/fa";
 
 // Tools array (same as before)
 const tools = [
@@ -135,11 +108,28 @@ const Index = () => {
         <main className="max-w-7xl mx-auto px-4 py-12">
 
           {/* Page Header with Border */}
-          <div className="border-2 border-gray-300 rounded-xl p-6 mb-10 text-center bg-gray-50">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900">Dev Toolkit Central</h1>
-            <p className="text-gray-600 text-lg">
-              A collection of free online developer tools to format, convert, and test your code.
-            </p>
+          <div className="w-full border-2 border-gray-300 rounded-xl p-4 md:p-6 mb-10 bg-gray-50 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-gray-900">
+                Dev Toolkit Central
+              </h1>
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg">
+                A collection of free online developer tools to format, convert, and test your code.
+              </p>
+            </div>
+
+            {/* Mobile-only Buy Me a Coffee button */}
+            <div className="block lg:hidden flex-shrink-0">
+              <a
+                href="https://buymeacoffee.com/neeharikakv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-yellow-400 text-gray-900 px-3 py-2 rounded hover:bg-yellow-500 transition"
+              >
+                <FaCoffee className="w-5 h-5" />
+                <span className="font-semibold">Buy Me a Coffee</span>
+              </a>
+            </div>
           </div>
 
           {/* Two-column layout: main grid + sidebar */}
@@ -167,11 +157,11 @@ const Index = () => {
               ))}
             </div>
 
-            {/* Right Column: Sticky Sidebar */}
+            {/* Right Column: Sidebar (Desktop only) */}
             <div className="lg:col-span-1 flex flex-col gap-6">
               <div className="lg:sticky lg:top-24">
-                {/* Sticky Sidebar Content */}
-                <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center transition-shadow duration-300 hover:shadow-lg">
+                {/* Desktop-only Buy Me a Coffee button */}
+                <div className="hidden lg:block bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center transition-shadow duration-300 hover:shadow-lg">
                   <h3 className="font-semibold mb-2 text-gray-800">Support Me</h3>
                   <a
                     href="https://buymeacoffee.com/neeharikakv"
