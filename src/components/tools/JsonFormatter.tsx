@@ -181,25 +181,6 @@ const JsonFormatter = () => {
         output={output}
         outputLabel="Formatted JSON"
       />
-      {/* Crawlable descriptive content for SEO */}
-      <section>
-        <h1>JSON Formatter</h1>
-        <p>
-          This JSON Formatter helps developers format, validate, and beautify JSON data instantly.
-        </p>
-        <h2>How to use:</h2>
-        <ol>
-          <li>Paste your JSON data</li>
-          <li>Click Format</li>
-          <li>Copy the formatted output</li>
-        </ol>
-        <h2>Features:</h2>
-        <ul>
-          <li>Beautify JSON</li>
-          <li>Validate JSON syntax</li>
-          <li>Minify JSON</li>
-        </ul>
-      </section>
     </>
   );
 };
