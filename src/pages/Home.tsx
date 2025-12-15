@@ -172,12 +172,12 @@ const Index = () => {
               </h2>
               <p className="text-gray-600 mb-6">{tool.desc}</p>
 
-              <Link
+              <RouterLink
                 to={tool.path}
                 className="mt-auto inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center font-medium shadow-sm hover:shadow-md transition"
               >
                 Open Tool →
-              </Link>
+              </RouterLink>
             </div>
           ))}
         </div>

@@ -11,15 +11,15 @@ import Contact from "./pages/Contact";
 
 // Tool Pages
 import JsonFormatterPage from "./components/tools/JsonFormatter";
-import Base64Page from "./pages/tools/Base64Page";
-import UrlEncoderPage from "./pages/tools/UrlEncoderPage";
-import RegexTesterPage from "./pages/tools/RegexTesterPage";
-import UuidGeneratorPage from "./pages/tools/UuidGeneratorPage";
-import ColorPickerPage from "./pages/tools/ColorPickerPage";
-import HtmlBeautifierPage from "./pages/tools/HtmlBeautifierPage";
-import CssBeautifierPage from "./pages/tools/CssBeautifierPage";
-import JsBeautifierPage from "./pages/tools/JsBeautifierPage";
-import TimestampConverterPage from "./pages/tools/TimestampConverterPage";
+import Base64Page from "./components/tools/Base64Tool";
+import UrlEncoderPage from "./components/tools/UrlTool";
+import RegexTesterPage from "./components/tools/RegexTester";
+import UuidGeneratorPage from "./components/tools/UuidGenerator";
+import ColorPickerPage from "./components/tools/ColorPicker";
+import HtmlBeautifierPage from "./components/tools/HtmlBeautifier";
+import CssBeautifierPage from "./components/tools/CssBeautifier";
+import JsBeautifierPage from "./components/tools/JsBeautifier";
+import TimestampConverterPage from "./components/tools/TimestampConverter";
 
 const queryClient = new QueryClient();
 
