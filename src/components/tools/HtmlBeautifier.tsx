@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Maximize2, Minimize2 } from "lucide-react";
@@ -132,13 +133,36 @@ const HtmlBeautifier = () => {
   );
 
   return (
-    <ToolLayout
-      title="HTML Beautifier"
-      description="Format and beautify HTML code with proper indentation"
-      inputSection={inputSection}
-      output={output}
-      outputLabel="Formatted HTML"
-    />
+    <>
+      <Helmet>
+        <title>HTML Beautifier – Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Format and beautify HTML code online quickly with our free HTML Beautifier tool."
+        />
+        <link
+          rel="canonical"
+          href="https://dev-toolkit-central.pages.dev/html-beautifier"
+        />
+        <meta property="og:title" content="HTML Beautifier – Dev Toolkit Central" />
+        <meta
+          property="og:description"
+          content="Format and beautify HTML code online quickly with our free HTML Beautifier tool."
+        />
+        <meta
+          property="og:url"
+          content="https://dev-toolkit-central.pages.dev/html-beautifier"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ToolLayout
+        title="HTML Beautifier"
+        description="Format and beautify HTML code with proper indentation"
+        inputSection={inputSection}
+        output={output}
+        outputLabel="Formatted HTML"
+      />
+    </>
   );
 };
 

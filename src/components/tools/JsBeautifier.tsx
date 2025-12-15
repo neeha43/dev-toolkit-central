@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Maximize2, Minimize2 } from "lucide-react";
@@ -123,7 +124,7 @@ const JsBeautifier = () => {
       </div>
 
       <div className="bg-muted/30 rounded-lg p-3 text-xs text-muted-foreground">
-        <strong>Note:</strong> The minification is basic and meant for preview purposes. 
+        <strong>Note:</strong> The minification is basic and meant for preview purposes.
         For production, use dedicated tools like Terser or UglifyJS.
       </div>
 
@@ -144,13 +145,36 @@ const JsBeautifier = () => {
   );
 
   return (
-    <ToolLayout
-      title="JavaScript Beautifier"
-      description="Format and beautify JavaScript code with proper indentation"
-      inputSection={inputSection}
-      output={output}
-      outputLabel="Formatted JavaScript"
-    />
+    <>
+      <Helmet>
+        <title>JavaScript (JS) Beautifier – Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Format and beautify JavaScript (JS) code online quickly with our free JS Beautifier tool."
+        />
+        <link
+          rel="canonical"
+          href="https://dev-toolkit-central.pages.dev/js-beautifier"
+        />
+        <meta property="og:title" content="JavaScript (JS) Beautifier – Dev Toolkit Central" />
+        <meta
+          property="og:description"
+          content="Format and beautify JavaScript (JS) code online quickly with our free JS Beautifier tool."
+        />
+        <meta
+          property="og:url"
+          content="https://dev-toolkit-central.pages.dev/js-beautifier"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ToolLayout
+        title="JavaScript Beautifier"
+        description="Format and beautify JavaScript code with proper indentation"
+        inputSection={inputSection}
+        output={output}
+        outputLabel="Formatted JavaScript"
+      />
+    </>
   );
 };
 

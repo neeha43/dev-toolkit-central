@@ -34,7 +34,7 @@ const App = () => (
           
           {/* Tool Pages */}
           <Route path="/json-formatter" element={<JsonFormatterPage />} />
-          <Route path="/base64-encoder" element={<Base64Page />} />
+          <Route path="/base64-encoder-decoder" element={<Base64Page />} />
           <Route path="/url-encoder" element={<UrlEncoderPage />} />
           <Route path="/regex-tester" element={<RegexTesterPage />} />
           <Route path="/uuid-generator" element={<UuidGeneratorPage />} />

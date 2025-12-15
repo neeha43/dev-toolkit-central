@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Clock, RefreshCw, Calendar } from "lucide-react";
@@ -29,14 +30,14 @@ const TimestampConverter = () => {
 
     try {
       let ts = parseInt(timestamp);
-      
+
       // Handle seconds vs milliseconds
       if (ts.toString().length === 10) {
         ts = ts * 1000; // Convert seconds to milliseconds
       }
 
       const date = new Date(ts);
-      
+
       if (isNaN(date.getTime())) {
         throw new Error("Invalid timestamp");
       }
@@ -90,7 +91,7 @@ const TimestampConverter = () => {
 
     try {
       const date = new Date(dateInput);
-      
+
       if (isNaN(date.getTime())) {
         throw new Error("Invalid date");
       }
@@ -205,13 +206,36 @@ const TimestampConverter = () => {
   );
 
   return (
-    <ToolLayout
-      title="Timestamp Converter"
-      description="Convert between Unix timestamps and human-readable dates"
-      inputSection={inputSection}
-      output={output}
-      outputLabel="Converted Result"
-    />
+    <>
+      <Helmet>
+        <title>Timestamp Converter – Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Convert Unix timestamps to human-readable dates and vice versa online."
+        />
+        <link
+          rel="canonical"
+          href="https://dev-toolkit-central.pages.dev/timestamp-converter"
+        />
+        <meta property="og:title" content="Timestamp Converter – Dev Toolkit Central" />
+        <meta
+          property="og:description"
+          content="Convert Unix timestamps to human-readable dates and vice versa online."
+        />
+        <meta
+          property="og:url"
+          content="https://dev-toolkit-central.pages.dev/timestamp-converter"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ToolLayout
+        title="Timestamp Converter"
+        description="Convert between Unix timestamps and human-readable dates"
+        inputSection={inputSection}
+        output={output}
+        outputLabel="Converted Result"
+      />
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { Link, Link2Off } from "lucide-react";
@@ -20,7 +21,7 @@ const UrlTool = () => {
     }
 
     try {
-      const encoded = encodeMode === "component" 
+      const encoded = encodeMode === "component"
         ? encodeURIComponent(input)
         : encodeURI(input);
       setOutput(encoded);
@@ -102,7 +103,7 @@ const UrlTool = () => {
       </div>
 
       <div className="bg-muted/30 rounded-lg p-3 text-xs text-muted-foreground">
-        <strong>Tip:</strong> Use "Component" for encoding query parameters or fragments. 
+        <strong>Tip:</strong> Use "Component" for encoding query parameters or fragments.
         Use "Full URL" to encode an entire URL while preserving special characters like :, /, ?, &.
       </div>
 
@@ -123,13 +124,36 @@ const UrlTool = () => {
   );
 
   return (
-    <ToolLayout
-      title="URL Encoder/Decoder"
-      description="Encode and decode URL components for safe transmission in URLs"
-      inputSection={inputSection}
-      output={output}
-      outputLabel="Result"
-    />
+    <>
+      <Helmet>
+        <title>URL Encoder – Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Encode and Decode URLs online using our free URL Encoder tool."
+        />
+        <link
+          rel="canonical"
+          href="https://dev-toolkit-central.pages.dev/url-encoder"
+        />
+        <meta property="og:title" content="URL Encoder – Dev Toolkit Central" />
+        <meta
+          property="og:description"
+          content="Encode and Decode URLs online using our free URL Encoder tool."
+        />
+        <meta
+          property="og:url"
+          content="https://dev-toolkit-central.pages.dev/url-encoder"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ToolLayout
+        title="URL Encoder/Decoder"
+        description="Encode and decode URL components for safe transmission in URLs"
+        inputSection={inputSection}
+        output={output}
+        outputLabel="Result"
+      />
+    </>
   );
 };
 

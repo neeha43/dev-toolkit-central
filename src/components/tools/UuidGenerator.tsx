@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
 import { RefreshCw, Plus, Hash } from "lucide-react";
@@ -24,7 +25,7 @@ const UuidGenerator = () => {
     const now = Date.now();
     const timeHex = now.toString(16).padStart(12, "0");
     const random = () => Math.floor(Math.random() * 16).toString(16);
-    
+
     return [
       timeHex.slice(0, 8),
       timeHex.slice(8, 12),
@@ -48,7 +49,7 @@ const UuidGenerator = () => {
   const generate = () => {
     const uuids: string[] = [];
     const generator = version === "v4" ? generateUuidV4 : generateUuidV1Like;
-    
+
     for (let i = 0; i < count; i++) {
       uuids.push(formatUuid(generator()));
     }
@@ -145,13 +146,36 @@ const UuidGenerator = () => {
   );
 
   return (
-    <ToolLayout
-      title="UUID Generator"
-      description="Generate universally unique identifiers (UUIDs) in various formats"
-      inputSection={inputSection}
-      output={output}
-      outputLabel="Generated UUIDs"
-    />
+    <>
+      <Helmet>
+        <title>UUID Generator – Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Generate unique UUIDs online instantly with our free UUID Generator tool."
+        />
+        <link
+          rel="canonical"
+          href="https://dev-toolkit-central.pages.dev/uuid-generator"
+        />
+        <meta property="og:title" content="UUID Generator – Dev Toolkit Central" />
+        <meta
+          property="og:description"
+          content="Generate unique UUIDs online instantly with our free UUID Generator tool."
+        />
+        <meta
+          property="og:url"
+          content="https://dev-toolkit-central.pages.dev/uuid-generator"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <ToolLayout
+        title="UUID Generator"
+        description="Generate universally unique identifiers (UUIDs) in various formats"
+        inputSection={inputSection}
+        output={output}
+        outputLabel="Generated UUIDs"
+      />
+    </>
   );
 };
 
