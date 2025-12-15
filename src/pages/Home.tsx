@@ -123,7 +123,7 @@ const Index = () => {
       </Helmet>
 
       {/* Background gradient effect */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none"
         style={{
           background: "radial-gradient(ellipse at top, hsl(187, 90%, 51%, 0.08) 0%, transparent 50%)",
@@ -158,36 +158,64 @@ const Index = () => {
           </div>
         </header>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {tools.map((tool) => (
-            <div
-              key={tool.path}
-              className="group relative bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105 p-6 flex flex-col justify-between"
-            >
-              {/* Tool Icon */}
-              <div className="text-4xl mb-4">{tool.icon}</div>
+        <main className="max-w-7xl mx-auto px-4 py-12">
+          <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">
+            Dev Toolkit Central
+          </h1>
+          <p className="text-center mb-10 text-gray-600 text-lg">
+            A collection of free online developer tools to format, convert, and test your code.
+          </p>
 
-              <h2 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition">
-                {tool.title}
-              </h2>
-              <p className="text-gray-600 mb-6">{tool.desc}</p>
+          {/* Two-column layout: main grid + sidebar */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-              <RouterLink
-                to={tool.path}
-                className="mt-auto inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center font-medium shadow-sm hover:shadow-md transition"
-              >
-                Open Tool →
-              </RouterLink>
+            {/* Left Column: Tools Grid (span 3/4 on large screens) */}
+            <div className="lg:col-span-3 grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+              {tools.map((tool) => (
+                <div
+                  key={tool.path}
+                  className="group relative bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105 p-6 flex flex-col justify-between"
+                >
+                  <div className="text-4xl mb-4">{tool.icon}</div>
+                  <h2 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition">
+                    {tool.title}
+                  </h2>
+                  <p className="text-gray-600 mb-6">{tool.desc}</p>
+                  <RouterLink
+                    to={tool.path}
+                    className="mt-auto inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center font-medium shadow-sm hover:shadow-md transition"
+                  >
+                    Open Tool →
+                  </RouterLink>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Main Content */}
-        <main className="flex-1 container mx-auto px-3 sm:px-4 py-4 sm:py-6">
-          <article className="flex gap-4 lg:gap-6">
-            {/* Sidebar */}
-            <Sidebar />
-          </article>
+            {/* Right Column: Sidebar */}
+            <div className="lg:col-span-1 flex flex-col gap-6">
+              {/* Buy Me a Coffee */}
+              <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center">
+                <h3 className="font-semibold mb-2 text-gray-800">Support Me</h3>
+                <a
+                  href="https://www.buymeacoffee.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-400 text-gray-900 font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition"
+                >
+                  Buy Me a Coffee ☕
+                </a>
+              </div>
+
+              {/* Ads / Additional content */}
+              <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center">
+                <h3 className="font-semibold mb-2 text-gray-800">Advertisement</h3>
+                <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
+                  {/* Replace with your ad code or iframe */}
+                  <span className="text-gray-500">Ad Space</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
 
         {/* Footer */}
@@ -198,20 +226,20 @@ const Index = () => {
                 © {new Date().getFullYear()} DevTools. Free developer tools • No data stored
               </p>
               <nav className="flex items-center gap-4 sm:gap-6" aria-label="Footer navigation">
-                <RouterLink 
-                  to="/about" 
+                <RouterLink
+                  to="/about"
                   className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About
                 </RouterLink>
-                <RouterLink 
-                  to="/privacy" 
+                <RouterLink
+                  to="/privacy"
                   className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Privacy Policy
                 </RouterLink>
-                <RouterLink 
-                  to="/contact" 
+                <RouterLink
+                  to="/contact"
                   className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Contact
