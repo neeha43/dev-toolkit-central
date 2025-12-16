@@ -1,31 +1,30 @@
-import { Coffee, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React from "react";
 
-const Sidebar = () => {
-  return (
-    <aside className="w-72 flex-shrink-0 hidden xl:flex flex-col gap-6 p-4">
-      {/* Buy Me a Coffee */}
-      <div className="gradient-border p-4">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-lg bg-warning/20 flex items-center justify-center">
-            <Coffee className="w-5 h-5 text-warning" />
-          </div>
-          <div>
-            <h3 className="font-semibold text-foreground text-sm">Support Us</h3>
-            <p className="text-xs text-muted-foreground">Buy me a coffee</p>
-          </div>
-        </div>
-        <Button
-          variant="outline"
-          className="w-full bg-warning/10 border-warning/30 text-warning hover:bg-warning/20 hover:text-warning"
-          onClick={() => window.open('https://buymeacoffee.com/neeharikakv', '_blank')}
+const Sidebar = () => (
+  <div className="lg:col-span-1 flex flex-col gap-4 sm:gap-6">
+    <div className="lg:sticky lg:top-24 flex flex-col gap-4">
+      {/* DESKTOP ONLY BUTTON */}
+      <div className="hidden lg:block bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center transition-shadow duration-300 hover:shadow-lg">
+        <h3 className="font-semibold mb-2 text-gray-800">Support Me</h3>
+        <a
+          href="https://buymeacoffee.com/neeharikakv"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-yellow-400 text-gray-900 font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition"
         >
-          <Coffee className="w-4 h-4 mr-2" />
-          Buy Me a Coffee
-        </Button>
+          Buy Me a Coffee ☕
+        </a>
       </div>
-    </aside>
-  );
-};
+
+      {/* Advertisement */}
+      <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center mt-4 sm:mt-6 transition-shadow duration-300 hover:shadow-lg">
+        <h3 className="font-semibold mb-2 text-gray-800">Advertisement</h3>
+        <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
+          <span className="text-gray-500">Ad Space</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 export default Sidebar;
