@@ -20,6 +20,7 @@ import HtmlBeautifierPage from "./pages/tools/HtmlBeautifierPage";
 import CssBeautifierPage from "./pages/tools/CssBeautifierPage";
 import JsBeautifierPage from "./pages/tools/JsBeautifierPage";
 import TimestampConverterPage from "./pages/tools/TimestampConverterPage";
+import AppLayout from "./app/layout/AppLayout";
 
 const queryClient = new QueryClient();
 
@@ -30,27 +31,28 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          
-          {/* Tool Pages */}
-          <Route path="/json-formatter" element={<JsonFormatterPage />} />
-          <Route path="/base64-encoder-decoder" element={<Base64Page />} />
-          <Route path="/url-encoder" element={<UrlEncoderPage />} />
-          <Route path="/regex-tester" element={<RegexTesterPage />} />
-          <Route path="/uuid-generator" element={<UuidGeneratorPage />} />
-          <Route path="/color-picker" element={<ColorPickerPage />} />
-          <Route path="/html-beautifier" element={<HtmlBeautifierPage />} />
-          <Route path="/css-beautifier" element={<CssBeautifierPage />} />
-          <Route path="/js-beautifier" element={<JsBeautifierPage />} />
-          <Route path="/timestamp-converter" element={<TimestampConverterPage />} />
-          
-          {/* Info Pages */}
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Home />} />
+
+            {/* Tool Pages */}
+            <Route path="/json-formatter" element={<JsonFormatterPage />} />
+            <Route path="/base64-encoder-decoder" element={<Base64Page />} />
+            <Route path="/url-encoder" element={<UrlEncoderPage />} />
+            <Route path="/regex-tester" element={<RegexTesterPage />} />
+            <Route path="/uuid-generator" element={<UuidGeneratorPage />} />
+            <Route path="/color-picker" element={<ColorPickerPage />} />
+            <Route path="/html-beautifier" element={<HtmlBeautifierPage />} />
+            <Route path="/css-beautifier" element={<CssBeautifierPage />} />
+            <Route path="/js-beautifier" element={<JsBeautifierPage />} />
+            <Route path="/timestamp-converter" element={<TimestampConverterPage />} />
+
+            {/* Info Pages */}
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

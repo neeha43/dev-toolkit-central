@@ -1,23 +1,56 @@
-import ToolPageLayout from "@/components/layout/ToolPageLayout";
-import UuidGenerator from "@/components/tools/UuidGenerator";
-import { getToolSEOData } from "@/lib/seoData";
+import { Helmet } from "react-helmet-async";
+import BackToTools from "@/components/common/BackToTools";
+import UuidGeneratorTool from "@/features/tools/UuidGenerator";
 
-const seo = getToolSEOData("uuid")!;
-
-const UuidGeneratorPage = () => {
+export default function UuidGeneratorPage() {
   return (
-    <ToolPageLayout
-      title={seo.title}
-      description={seo.description}
-      metaTitle={seo.metaTitle}
-      metaDescription={seo.metaDescription}
-      canonicalPath={seo.canonicalPath}
-      keywords={seo.keywords}
-      faqs={seo.faqs}
-    >
-      <UuidGenerator />
-    </ToolPageLayout>
-  );
-};
+    <main className="max-w-4xl mx-auto px-4 py-10">
+      <BackToTools />
 
-export default UuidGeneratorPage;
+      <Helmet>
+        <title>UUID Generator | Dev Toolkit Central</title>
+        <meta name="description" content="Generate unique UUIDs instantly for databases, APIs, or applications. Secure and client-side tool." />
+        <meta name="keywords" content="UUID Generator, unique ID, developer tool, online UUID" />
+        <link rel="canonical" href="https://dev-toolkit-central.pages.dev/uuid-generator" />
+        <script type="application/ld+json">{`
+          {
+            "@context":"https://schema.org",
+            "@type":"FAQPage",
+            "mainEntity":[
+              {"@type":"Question","name":"What is a UUID?","acceptedAnswer":{"@type":"Answer","text":"UUID is a universally unique identifier used for keys, sessions, and resource identification."}},
+              {"@type":"Question","name":"Is my UUID secure?","acceptedAnswer":{"@type":"Answer","text":"Yes, UUIDs generated are random and unique. All generation happens in the browser."}},
+              {"@type":"Question","name":"Can I generate multiple UUIDs?","acceptedAnswer":{"@type":"Answer","text":"Yes, generate as many as needed sequentially."}}
+            ]
+          }
+        `}</script>
+      </Helmet>
+
+      <h1 className="text-3xl font-bold mb-6">UUID Generator</h1>
+      <p className="mb-6 text-gray-700">
+        Generate universally unique identifiers instantly for applications, databases, or projects. Useful for unique keys, session IDs, and resource tracking.
+      </p>
+
+      <h2 className="text-xl font-semibold mb-3">How to Use</h2>
+      <p className="mb-6 text-gray-700">Click 'Generate UUID' to create a unique identifier. Copy or generate multiple UUIDs for batch use.</p>
+
+      <h2 className="text-xl font-semibold mb-3">Benefits & Common Uses</h2>
+      <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+        <li>Quickly generate unique identifiers</li>
+        <li>Ideal for databases, APIs, and sessions</li>
+        <li>All processing is client-side for privacy</li>
+        <li>Supports version 4 UUIDs for randomness</li>
+      </ul>
+
+      <h2 className="text-xl font-semibold mb-3">Tips & Notes</h2>
+      <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-8">
+        <li>Use as primary keys in non-sensitive applications.</li>
+        <li>Avoid using UUIDs as encryption keys.</li>
+        <li>Generate multiple UUIDs at once for batch operations.</li>
+      </ul>
+
+      <div className="max-w-4xl mx-auto px-4 py-10">
+        <UuidGeneratorTool />
+      </div>
+    </main>
+  );
+}

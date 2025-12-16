@@ -1,143 +1,75 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft, Info, Zap, Shield, Globe } from "lucide-react";
-import SEOHead from "@/components/SEOHead";
-import { aboutPageSEO } from "@/lib/seoData";
+import { Helmet } from "react-helmet-async";
+import BackToTools from "@/components/common/BackToTools";
 
-const About = () => {
+export default function About() {
   return (
-    <div className="min-h-screen bg-background">
-      <SEOHead
-        title={aboutPageSEO.metaTitle}
-        description={aboutPageSEO.metaDescription}
-        canonicalPath={aboutPageSEO.canonicalPath}
-        keywords={aboutPageSEO.keywords}
-      />
+    <main className="max-w-4xl mx-auto px-4 py-10">
+      <BackToTools />
+      <Helmet>
+        <title>About Dev Toolkit Central</title>
+        <meta
+          name="description"
+          content="Learn more about Dev Toolkit Central, a free online platform offering practical and privacy-friendly developer tools."
+        />
+      </Helmet>
 
-      <div 
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse at top, hsl(187, 90%, 51%, 0.08) 0%, transparent 50%)",
-        }}
-      />
+      <h1 className="text-3xl font-bold mb-6">About Dev Toolkit Central</h1>
 
-      <div className="relative">
-        <header className="border-b border-border bg-card/50 backdrop-blur-sm">
-          <div className="container mx-auto px-4 py-4">
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to DevTools
-            </Link>
-          </div>
-        </header>
+      <p className="mb-4 text-gray-700">
+        Dev Toolkit Central is a free online platform built for developers, students, and anyone working with code. 
+        Our mission is simple: to provide a collection of practical, lightweight, and easy-to-use tools that help you work faster and smarter.
+      </p>
 
-        <main className="container mx-auto px-4 py-8 max-w-4xl">
-          <article>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                <Info className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <h1 className="text-3xl font-bold text-foreground">About DevTools</h1>
-            </div>
+      <p className="mb-4 text-gray-700">
+        The platform brings together commonly used developer utilities in one place. From formatting JSON, HTML, CSS, and JavaScript, 
+        to testing regular expressions, encoding and decoding data, or converting timestamps, our goal is to save your time and streamline repetitive tasks.
+      </p>
 
-            <div className="space-y-8 text-muted-foreground">
-              <section className="space-y-4">
-                <p className="text-lg">
-                  DevTools is a comprehensive collection of free online developer utilities designed to make your coding life easier. Whether you're formatting JSON, encoding URLs, testing regex patterns, or converting timestamps, we've got you covered.
-                </p>
-              </section>
+      <h2 className="text-xl font-semibold mt-8 mb-3">Why Dev Toolkit Central Exists</h2>
 
-              <section className="grid md:grid-cols-3 gap-6">
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10 mb-4">
-                    <Zap className="w-5 h-5 text-primary" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-foreground mb-2">Fast & Efficient</h2>
-                  <p className="text-sm">
-                    All tools run directly in your browser with no server processing, ensuring lightning-fast performance.
-                  </p>
-                </div>
+      <p className="mb-4 text-gray-700">
+        As developers ourselves, we noticed that the web is full of scattered tools that are often outdated, cluttered, or slow. 
+        Some websites even request unnecessary permissions or collect personal data, which can be frustrating and unsafe. 
+        Dev Toolkit Central solves these problems by providing browser-based tools that run locally, without sending your data anywhere.
+      </p>
 
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10 mb-4">
-                    <Shield className="w-5 h-5 text-primary" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-foreground mb-2">Privacy First</h2>
-                  <p className="text-sm">
-                    Your data never leaves your browser. We don't store, log, or transmit any information you enter.
-                  </p>
-                </div>
+      <p className="mb-4 text-gray-700">
+        We focus on speed, simplicity, and privacy. Each tool is designed to perform its function efficiently while maintaining a clean and responsive user interface. 
+        Our platform is constantly evolving, with new tools and improvements added based on user feedback and modern development needs.
+      </p>
 
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10 mb-4">
-                    <Globe className="w-5 h-5 text-primary" />
-                  </div>
-                  <h2 className="text-lg font-semibold text-foreground mb-2">Works Offline</h2>
-                  <p className="text-sm">
-                    Once loaded, most tools work without an internet connection, perfect for on-the-go development.
-                  </p>
-                </div>
-              </section>
+      <h2 className="text-xl font-semibold mt-8 mb-3">Who Can Benefit</h2>
 
-              <section className="space-y-4">
-                <h2 className="text-xl font-semibold text-foreground">Our Tools</h2>
-                <ul className="grid sm:grid-cols-2 gap-3">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    JSON Formatter & Validator
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    Base64 Encoder/Decoder
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    URL Encoder/Decoder
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    Regex Tester
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    UUID Generator
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    Color Picker & Converter
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    HTML/CSS/JS Beautifiers
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                    Timestamp Converter
-                  </li>
-                </ul>
-              </section>
+      <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+        <li>Professional developers looking for quick utilities</li>
+        <li>Students learning coding or web development</li>
+        <li>Software engineers working with APIs, JSON, or front-end frameworks</li>
+        <li>Anyone who regularly manipulates code or data formats</li>
+      </ul>
 
-              <section className="space-y-4">
-                <h2 className="text-xl font-semibold text-foreground">Our Mission</h2>
-                <p>
-                  We believe that essential developer tools should be free, fast, and respect your privacy. Our mission is to provide a reliable, ad-supported platform where developers can access the utilities they need without compromising their data or workflow.
-                </p>
-              </section>
+      <h2 className="text-xl font-semibold mt-8 mb-3">Our Technology Approach</h2>
 
-              <section className="space-y-4">
-                <h2 className="text-xl font-semibold text-foreground">Get in Touch</h2>
-                <p>
-                  Have suggestions, feedback, or found a bug? We'd love to hear from you! Visit our <Link to="/contact" className="text-primary hover:underline">Contact page</Link> to get in touch.
-                </p>
-              </section>
-            </div>
-          </article>
-        </main>
-      </div>
-    </div>
+      <p className="mb-4 text-gray-700">
+        Dev Toolkit Central is a frontend-only application built using modern web technologies like React, TypeScript, and Vite. 
+        All tools execute locally in your browser, meaning there’s no backend server storing or processing your data. 
+        This approach ensures privacy, speed, and reliability.
+      </p>
+
+      <p className="mb-4 text-gray-700">
+        Our tools are mobile-friendly, responsive, and optimized for both desktop and mobile browsers. 
+        We aim to create a consistent and professional user experience that makes development tasks easier, whether you’re on a laptop or a tablet.
+      </p>
+
+      <h2 className="text-xl font-semibold mt-8 mb-3">Our Vision</h2>
+
+      <p className="mb-4 text-gray-700">
+        We envision Dev Toolkit Central as the go-to platform for online developer tools — a reliable, ad-free, and privacy-conscious resource for coders worldwide. 
+        By keeping the platform lightweight and browser-focused, we ensure that every tool is fast, intuitive, and accessible.
+      </p>
+
+      <p className="mb-4 text-gray-700">
+        Whether you are learning, experimenting, or working professionally, Dev Toolkit Central provides the tools you need without distractions, ads (except for unobtrusive AdSense), or unnecessary complexity.
+      </p>
+    </main>
   );
-};
-
-export default About;
+}
