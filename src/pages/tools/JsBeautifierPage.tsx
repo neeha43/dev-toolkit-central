@@ -9,6 +9,10 @@ export default function JsBeautifierPage() {
 
       <Helmet>
         <title>JavaScript Beautifier | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Beautify and format JavaScript code online. Proper indentation, spacing, and readability for developers and learners." />
         <meta name="keywords" content="JavaScript Beautifier, JS Formatter, online tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/js-beautifier" />

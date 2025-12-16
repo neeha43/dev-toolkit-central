@@ -15,6 +15,10 @@ export default function ToolPageTemplate({ title, description, usage, benefits, 
       <BackToTools />
       <Helmet>
         <title>{title} | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta
           name="description"
           content={description}

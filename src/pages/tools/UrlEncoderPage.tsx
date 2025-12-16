@@ -9,6 +9,10 @@ export default function UrlEncoderPage() {
 
       <Helmet>
         <title>URL Encoder/Decoder | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Encode or decode URLs safely for web development. Convert special characters and spaces to ensure error-free links." />
         <meta name="keywords" content="URL Encoder, URL Decoder, online tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/url-encoder" />

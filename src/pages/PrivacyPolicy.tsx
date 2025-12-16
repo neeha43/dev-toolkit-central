@@ -7,6 +7,10 @@ export default function PrivacyPolicy() {
       <BackToTools />
       <Helmet>
         <title>Privacy Policy | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta
           name="description"
           content="Privacy Policy for Dev Toolkit Central. Learn how we handle data and cookies safely."

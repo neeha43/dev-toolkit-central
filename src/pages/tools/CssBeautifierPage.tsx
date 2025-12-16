@@ -9,6 +9,10 @@ export default function CssBeautifierPage() {
 
       <Helmet>
         <title>CSS Beautifier | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Format and beautify CSS code online. Improve readability, maintain indentation, and organize stylesheets efficiently." />
         <meta name="keywords" content="CSS Beautifier, CSS formatter, online CSS tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/css-beautifier" />

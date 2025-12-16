@@ -7,6 +7,10 @@ export default function Contact() {
       <BackToTools />
       <Helmet>
         <title>Contact | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta
           name="description"
           content="Contact Dev Toolkit Central for questions, feedback, or support regarding free online developer tools."

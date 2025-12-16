@@ -7,6 +7,10 @@ export default function About() {
       <BackToTools />
       <Helmet>
         <title>About Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta
           name="description"
           content="Learn more about Dev Toolkit Central, a free online platform offering practical and privacy-friendly developer tools."

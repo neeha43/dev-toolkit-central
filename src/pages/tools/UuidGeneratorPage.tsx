@@ -9,6 +9,10 @@ export default function UuidGeneratorPage() {
 
       <Helmet>
         <title>UUID Generator | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Generate unique UUIDs instantly for databases, APIs, or applications. Secure and client-side tool." />
         <meta name="keywords" content="UUID Generator, unique ID, developer tool, online UUID" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/uuid-generator" />

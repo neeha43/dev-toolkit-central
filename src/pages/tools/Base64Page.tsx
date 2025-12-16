@@ -9,6 +9,10 @@ export default function Base64Page() {
 
       <Helmet>
         <title>Base64 Encoder/Decoder | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Encode or decode text and binary data using Base64 quickly. Safe, client-side conversion for web developers and API testers." />
         <meta name="keywords" content="Base64 Encoder, Base64 Decoder, online converter, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/base64-encoder-decoder" />

@@ -9,6 +9,10 @@ export default function HtmlBeautifierPage() {
 
       <Helmet>
         <title>HTML Beautifier | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Beautify and format HTML code online. Clean, indent, and structure your HTML for better readability and maintenance." />
         <meta name="keywords" content="HTML Beautifier, HTML formatter, online HTML tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/html-beautifier" />

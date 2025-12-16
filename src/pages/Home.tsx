@@ -33,6 +33,10 @@ const Home = () => {
           name="description"
           content="Access free online developer tools including JSON Formatter, Base64 Encoder, HTML/CSS/JS Beautifiers, Color Picker, Regex Tester, Timestamp Converter, URL Encoder, and UUID Generator."
         />
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>

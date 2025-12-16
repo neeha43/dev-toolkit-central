@@ -9,6 +9,10 @@ export default function RegexTesterPage() {
 
       <Helmet>
         <title>Regex Tester | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Test and debug regular expressions instantly. Highlight matches in text and improve your regex workflow." />
         <meta name="keywords" content="Regex Tester, regular expression tool, pattern matching, online developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/regex-tester" />

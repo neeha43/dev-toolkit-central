@@ -9,6 +9,10 @@ export default function TimestampConverterPage() {
 
       <Helmet>
         <title>Timestamp Converter | Dev Toolkit Central</title>
+        <meta 
+          name="google-adsense-account" 
+          content="ca-pub-7839812208426780"
+        />
         <meta name="description" content="Convert Unix timestamps to readable dates and vice versa. Instant, client-side conversion for developers and analysts." />
         <meta name="keywords" content="Timestamp Converter, Unix timestamp, online tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/timestamp-converter" />
