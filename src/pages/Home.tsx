@@ -4,6 +4,7 @@ import { tools } from "@/features/tools/tools.config";
 import Sidebar from "@/components/layout/Sidebar";
 import ToolsGrid from "@/components/common/ToolsGrid";
 import HeaderSection from "@/components/layout/HeaderSection";
+import SeoContent from "@/components/common/SeoContent";
 
 const Home = () => {
 
@@ -51,6 +52,7 @@ const Home = () => {
             <ToolsGrid tools={tools} />
             <Sidebar />
           </div>
+          <SeoContent />
         </main>
       </div>
     </div>

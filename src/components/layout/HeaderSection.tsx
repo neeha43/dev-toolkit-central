@@ -3,7 +3,7 @@ import { FaCoffee } from "react-icons/fa";
 
 const HeaderSection = () => (
   <div className="w-full border-2 border-gray-300 rounded-xl p-3 sm:p-4 md:p-6 mb-10 bg-gray-50 flex flex-col items-center text-center gap-3 sm:gap-4">
-    <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
       Dev Toolkit Central
     </h1>
     <p className="text-sm sm:text-base md:text-lg text-gray-600 mt-1 sm:mt-2">
