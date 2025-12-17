@@ -8,13 +8,12 @@ export default function Base64Page() {
       <BackToTools />
 
       <Helmet>
-        <title>Base64 Encoder/Decoder | Dev Toolkit Central</title>
-        <meta 
-          name="google-adsense-account" 
+        <title>Base64 Encoder & Decoder – Free Online Tool | Dev Toolkit Central</title>
+        <meta
+          name="google-adsense-account"
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Encode or decode text and binary data using Base64 quickly. Safe, client-side conversion for web developers and API testers." />
-        <meta name="keywords" content="Base64 Encoder, Base64 Decoder, online converter, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/base64-encoder-decoder" />
         <script type="application/ld+json">{`
           {
@@ -41,9 +40,15 @@ export default function Base64Page() {
         `}</script>
       </Helmet>
 
-      <h1 className="text-3xl font-bold mb-6">Base64 Encoder / Decoder</h1>
+      <h1 className="text-3xl font-bold mb-6">Base64 Encoder & Decoder</h1>
       <p className="mb-6 text-gray-700">
         Quickly convert text or binary data to Base64 and decode it back. Essential for web developers, API testing, and securely transferring data without corruption.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -66,9 +71,12 @@ export default function Base64Page() {
         <li>Large input may depend on browser memory.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="Base64 Encoder Decoder Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <Base64Tool />
-      </div>
+      </section>
     </main>
   );
 }

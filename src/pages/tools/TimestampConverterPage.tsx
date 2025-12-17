@@ -8,13 +8,12 @@ export default function TimestampConverterPage() {
       <BackToTools />
 
       <Helmet>
-        <title>Timestamp Converter | Dev Toolkit Central</title>
-        <meta 
-          name="google-adsense-account" 
+        <title>Unix Timestamp Converter – Free Online Tool | Dev Toolkit Central</title>
+        <meta
+          name="google-adsense-account"
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Convert Unix timestamps to readable dates and vice versa. Instant, client-side conversion for developers and analysts." />
-        <meta name="keywords" content="Timestamp Converter, Unix timestamp, online tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/timestamp-converter" />
         <script type="application/ld+json">{`
           {
@@ -22,16 +21,22 @@ export default function TimestampConverterPage() {
             "@type":"FAQPage",
             "mainEntity":[
               {"@type":"Question","name":"What is Timestamp Converter?","acceptedAnswer":{"@type":"Answer","text":"Timestamp Converter converts Unix timestamps to readable dates and vice versa."}},
-              {"@type":"Question","name":"Is my data sent to server?","acceptedAnswer":{"@type":"Answer","text":"No, all conversions happen in your browser for privacy."}},
+              {"@type":"Question","name":"Is my data sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No, all conversions happen in your browser for privacy."}},
               {"@type":"Question","name":"Can I convert multiple timestamps?","acceptedAnswer":{"@type":"Answer","text":"Yes, enter different timestamps or dates sequentially for conversion."}}
             ]
           }
         `}</script>
       </Helmet>
 
-      <h1 className="text-3xl font-bold mb-6">Timestamp Converter</h1>
+      <h1 className="text-3xl font-bold mb-6">Unix Timestamp Converter</h1>
       <p className="mb-6 text-gray-700">
         Convert Unix timestamps to human-readable dates and vice versa instantly. Useful for developers, testers, and analysts working with logs, APIs, or databases.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -54,9 +59,12 @@ export default function TimestampConverterPage() {
         <li>Use sequential conversions for multiple timestamps.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="Timestamp Converter Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <TimestampConverterTool />
-      </div>
+      </section>
     </main>
   );
 }

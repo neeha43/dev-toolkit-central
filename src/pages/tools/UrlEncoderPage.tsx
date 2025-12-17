@@ -8,13 +8,12 @@ export default function UrlEncoderPage() {
       <BackToTools />
 
       <Helmet>
-        <title>URL Encoder/Decoder | Dev Toolkit Central</title>
-        <meta 
-          name="google-adsense-account" 
+        <title>URL Encoder & Decoder – Free Online Tool | Dev Toolkit Central</title>
+        <meta
+          name="google-adsense-account"
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Encode or decode URLs safely for web development. Convert special characters and spaces to ensure error-free links." />
-        <meta name="keywords" content="URL Encoder, URL Decoder, online tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/url-encoder" />
         <script type="application/ld+json">{`
           {
@@ -29,9 +28,15 @@ export default function UrlEncoderPage() {
         `}</script>
       </Helmet>
 
-      <h1 className="text-3xl font-bold mb-6">URL Encoder / Decoder</h1>
+      <h1 className="text-3xl font-bold mb-6">URL Encoder & Decoder</h1>
       <p className="mb-6 text-gray-700">
         Encode or decode URLs quickly to ensure safe and error-free links. Essential for web development, API testing, and working with URLs that contain special characters.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -54,9 +59,12 @@ export default function UrlEncoderPage() {
         <li>Useful for handling spaces, symbols, or non-ASCII characters in links.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="URL Encoder Decoder Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <UrlEncoderTool />
-      </div>
+      </section>
     </main>
   );
 }

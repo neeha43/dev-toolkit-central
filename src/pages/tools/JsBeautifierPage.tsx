@@ -8,13 +8,12 @@ export default function JsBeautifierPage() {
       <BackToTools />
 
       <Helmet>
-        <title>JavaScript Beautifier | Dev Toolkit Central</title>
+        <title>JavaScript Beautifier – Free Online Tool | Dev Toolkit Central</title>
         <meta 
           name="google-adsense-account" 
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Beautify and format JavaScript code online. Proper indentation, spacing, and readability for developers and learners." />
-        <meta name="keywords" content="JavaScript Beautifier, JS Formatter, online tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/js-beautifier" />
         <script type="application/ld+json">{`
           {
@@ -32,6 +31,12 @@ export default function JsBeautifierPage() {
       <h1 className="text-3xl font-bold mb-6">JavaScript Beautifier</h1>
       <p className="mb-6 text-gray-700">
         Beautify JavaScript code instantly. Make your scripts readable, well-indented, and easier to debug or maintain for web projects.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -54,9 +59,12 @@ export default function JsBeautifierPage() {
         <li>Minify only for production; keep formatted JS for development.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="JavaScript Beautifier Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <JsBeautifierTool />
-      </div>
+      </section>
     </main>
   );
 }

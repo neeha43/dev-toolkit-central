@@ -6,15 +6,14 @@ export default function JsonFormatterPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 py-10">
       <BackToTools />
-      
+
       <Helmet>
-        <title>JSON Formatter | Dev Toolkit Central</title>
-        <meta 
-          name="google-adsense-account" 
+        <title>JSON Formatter & Validator – Free Online Tool | Dev Toolkit Central</title>
+        <meta
+          name="google-adsense-account"
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Format, validate, and beautify JSON data quickly with Dev Toolkit Central. Make your JSON readable and error-free instantly." />
-        <meta name="keywords" content="JSON Formatter, online JSON tool, JSON beautifier, free developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/json-formatter" />
         <script type="application/ld+json">{`
           {
@@ -46,6 +45,12 @@ export default function JsonFormatterPage() {
         JSON Formatter allows you to format, validate, and beautify JSON data quickly. Perfect for developers, testers, and students who work with APIs, configuration files, or datasets.
         Instantly make your JSON readable, error-free, and easy to debug.
       </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
+      </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
       <p className="mb-6 text-gray-700">
@@ -68,9 +73,12 @@ export default function JsonFormatterPage() {
       </ul>
 
       {/* Interactive Tool */}
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="JSON Formatter Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <JsonFormatterTool />
-      </div>
+      </section>
     </main>
   );
 }

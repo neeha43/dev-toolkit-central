@@ -8,13 +8,12 @@ export default function RegexTesterPage() {
       <BackToTools />
 
       <Helmet>
-        <title>Regex Tester | Dev Toolkit Central</title>
+        <title>Regex Tester – Free Online Tool | Dev Toolkit Central</title>
         <meta 
           name="google-adsense-account" 
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Test and debug regular expressions instantly. Highlight matches in text and improve your regex workflow." />
-        <meta name="keywords" content="Regex Tester, regular expression tool, pattern matching, online developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/regex-tester" />
         <script type="application/ld+json">{`
           {
@@ -32,6 +31,12 @@ export default function RegexTesterPage() {
       <h1 className="text-3xl font-bold mb-6">Regex Tester</h1>
       <p className="mb-6 text-gray-700">
         Test and debug regular expressions online. Highlight matches in real-time and fine-tune your regex for web development, scripting, and data validation tasks.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -54,9 +59,12 @@ export default function RegexTesterPage() {
         <li>Experiment with flags to refine your results.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="Regex Tester Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <RegexTesterTool />
-      </div>
+      </section>
     </main>
   );
 }

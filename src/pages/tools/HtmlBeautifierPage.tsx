@@ -8,13 +8,12 @@ export default function HtmlBeautifierPage() {
       <BackToTools />
 
       <Helmet>
-        <title>HTML Beautifier | Dev Toolkit Central</title>
+        <title>HTML Beautifier – Free Online Tool | Dev Toolkit Central</title>
         <meta 
           name="google-adsense-account" 
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Beautify and format HTML code online. Clean, indent, and structure your HTML for better readability and maintenance." />
-        <meta name="keywords" content="HTML Beautifier, HTML formatter, online HTML tool, developer tools" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/html-beautifier" />
         <script type="application/ld+json">{`
           {
@@ -32,6 +31,12 @@ export default function HtmlBeautifierPage() {
       <h1 className="text-3xl font-bold mb-6">HTML Beautifier</h1>
       <p className="mb-6 text-gray-700">
         Beautify messy or minified HTML into readable, well-structured code. Ideal for web developers, designers, and students working on templates, projects, or debugging HTML files.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -54,9 +59,12 @@ export default function HtmlBeautifierPage() {
         <li>Use consistent formatting across all projects.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="HTML Beautifier Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <HtmlBeautifierTool />
-      </div>
+      </section>
     </main>
   );
 }

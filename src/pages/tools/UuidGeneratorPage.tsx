@@ -8,13 +8,12 @@ export default function UuidGeneratorPage() {
       <BackToTools />
 
       <Helmet>
-        <title>UUID Generator | Dev Toolkit Central</title>
-        <meta 
-          name="google-adsense-account" 
+        <title>UUID Generator – Free Online Tool | Dev Toolkit Central</title>
+        <meta
+          name="google-adsense-account"
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Generate unique UUIDs instantly for databases, APIs, or applications. Secure and client-side tool." />
-        <meta name="keywords" content="UUID Generator, unique ID, developer tool, online UUID" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/uuid-generator" />
         <script type="application/ld+json">{`
           {
@@ -32,6 +31,12 @@ export default function UuidGeneratorPage() {
       <h1 className="text-3xl font-bold mb-6">UUID Generator</h1>
       <p className="mb-6 text-gray-700">
         Generate universally unique identifiers instantly for applications, databases, or projects. Useful for unique keys, session IDs, and resource tracking.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -52,9 +57,12 @@ export default function UuidGeneratorPage() {
         <li>Generate multiple UUIDs at once for batch operations.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="UUID Generator Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <UuidGeneratorTool />
-      </div>
+      </section>
     </main>
   );
 }

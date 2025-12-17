@@ -8,13 +8,12 @@ export default function ColorPickerPage() {
       <BackToTools />
 
       <Helmet>
-        <title>Color Picker | Dev Toolkit Central</title>
+        <title>Color Picker – Free Online Tool | Dev Toolkit Central</title>
         <meta 
           name="google-adsense-account" 
           content="ca-pub-7839812208426780"
         />
         <meta name="description" content="Pick, convert, and explore colors online. Generate HEX, RGB, and HSL codes easily for web design or development." />
-        <meta name="keywords" content="Color Picker, online color tool, HEX RGB HSL, web design tool" />
         <link rel="canonical" href="https://dev-toolkit-central.pages.dev/color-picker" />
         <script type="application/ld+json">{`
           {
@@ -29,9 +28,15 @@ export default function ColorPickerPage() {
         `}</script>
       </Helmet>
 
-      <h1 className="text-3xl font-bold mb-6">Color Picker</h1>
+      <h1 className="text-3xl font-bold mb-6">Color Picker Tool</h1>
       <p className="mb-6 text-gray-700">
         Pick, convert, and explore colors online. Generate HEX, RGB, and HSL codes quickly and use them in web design, UI development, or graphic projects.
+      </p>
+      <p className="mb-6 text-gray-700">
+        Explore more utilities in our{" "}
+        <a href="/tools" className="text-blue-600 underline">
+          free developer tools collection
+        </a>.
       </p>
 
       <h2 className="text-xl font-semibold mb-3">How to Use</h2>
@@ -54,9 +59,12 @@ export default function ColorPickerPage() {
         <li>Experiment with shades and opacity for design precision.</li>
       </ul>
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <section
+        aria-label="Color Picker Tool"
+        className="max-w-4xl mx-auto px-4 py-10"
+      >
         <ColorPickerTool />
-      </div>
+      </section>
     </main>
   );
 }
