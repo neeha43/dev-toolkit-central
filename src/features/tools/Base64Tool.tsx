@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
@@ -177,36 +176,13 @@ const Base64Tool = () => {
   );
 
   return (
-    <>
-      <Helmet>
-        <title>Base64 Encoder / Decoder – Dev Toolkit Central</title>
-        <meta
-          name="description"
-          content="Encode or decode text to/from Base64 online with our free Base64 tool."
-        />
-        <link
-          rel="canonical"
-          href="https://dev-toolkit-central.pages.dev/base64-encoder-decoder"
-        />
-        <meta property="og:title" content="Base64 Encoder / Decoder – Dev Toolkit Central" />
-        <meta
-          property="og:description"
-          content="Encode or decode text to/from Base64 online with our free Base64 tool."
-        />
-        <meta
-          property="og:url"
-          content="https://dev-toolkit-central.pages.dev/base64-encoder-decoder"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <ToolLayout
-        title="Base64 Encoder/Decoder"
-        description="Encode text or files to Base64 and decode Base64 back to original content"
-        inputSection={inputSection}
-        output={output}
-        outputLabel="Result"
-      />
-    </>
+    <ToolLayout
+      title="Base64 Encoder/Decoder"
+      description="Encode text or files to Base64 and decode Base64 back to original content"
+      inputSection={inputSection}
+      output={output}
+      outputLabel="Result"
+    />
   );
 };
 

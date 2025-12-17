@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
@@ -146,36 +145,13 @@ const UuidGenerator = () => {
   );
 
   return (
-    <>
-      <Helmet>
-        <title>UUID Generator – Dev Toolkit Central</title>
-        <meta
-          name="description"
-          content="Generate unique UUIDs online instantly with our free UUID Generator tool."
-        />
-        <link
-          rel="canonical"
-          href="https://dev-toolkit-central.pages.dev/uuid-generator"
-        />
-        <meta property="og:title" content="UUID Generator – Dev Toolkit Central" />
-        <meta
-          property="og:description"
-          content="Generate unique UUIDs online instantly with our free UUID Generator tool."
-        />
-        <meta
-          property="og:url"
-          content="https://dev-toolkit-central.pages.dev/uuid-generator"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <ToolLayout
-        title="UUID Generator"
-        description="Generate universally unique identifiers (UUIDs) in various formats"
-        inputSection={inputSection}
-        output={output}
-        outputLabel="Generated UUIDs"
-      />
-    </>
+    <ToolLayout
+      title="UUID Generator"
+      description="Generate universally unique identifiers (UUIDs) in various formats"
+      inputSection={inputSection}
+      output={output}
+      outputLabel="Generated UUIDs"
+    />
   );
 };
 

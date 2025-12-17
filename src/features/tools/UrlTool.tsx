@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
@@ -124,36 +123,13 @@ const UrlTool = () => {
   );
 
   return (
-    <>
-      <Helmet>
-        <title>URL Encoder – Dev Toolkit Central</title>
-        <meta
-          name="description"
-          content="Encode and Decode URLs online using our free URL Encoder tool."
-        />
-        <link
-          rel="canonical"
-          href="https://dev-toolkit-central.pages.dev/url-encoder"
-        />
-        <meta property="og:title" content="URL Encoder – Dev Toolkit Central" />
-        <meta
-          property="og:description"
-          content="Encode and Decode URLs online using our free URL Encoder tool."
-        />
-        <meta
-          property="og:url"
-          content="https://dev-toolkit-central.pages.dev/url-encoder"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <ToolLayout
-        title="URL Encoder/Decoder"
-        description="Encode and decode URL components for safe transmission in URLs"
-        inputSection={inputSection}
-        output={output}
-        outputLabel="Result"
-      />
-    </>
+    <ToolLayout
+      title="URL Encoder/Decoder"
+      description="Encode and decode URL components for safe transmission in URLs"
+      inputSection={inputSection}
+      output={output}
+      outputLabel="Result"
+    />
   );
 };
 

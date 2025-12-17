@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
@@ -151,37 +150,13 @@ const JsonFormatter = () => {
   );
 
   return (
-    <>
-    {/* SEO Meta Tags */}
-      <Helmet>
-        <title>JSON Formatter – Dev Toolkit Central</title>
-        <meta
-          name="description"
-          content="Format, validate, and beautify JSON online with our free JSON Formatter tool."
-        />
-        <link
-          rel="canonical"
-          href="https://dev-toolkit-central.pages.dev/json-formatter"
-        />
-        <meta property="og:title" content="JSON Formatter – Dev Toolkit Central" />
-        <meta
-          property="og:description"
-          content="Format, validate, and beautify JSON online with our free JSON Formatter tool."
-        />
-        <meta
-          property="og:url"
-          content="https://dev-toolkit-central.pages.dev/json-formatter"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <ToolLayout
-        title="JSON Formatter"
-        description="Format, minify, and validate JSON data with syntax highlighting"
-        inputSection={inputSection}
-        output={output}
-        outputLabel="Formatted JSON"
-      />
-    </>
+    <ToolLayout
+      title="JSON Formatter"
+      description="Format, minify, and validate JSON data with syntax highlighting"
+      inputSection={inputSection}
+      output={output}
+      outputLabel="Formatted JSON"
+    />
   );
 };
 

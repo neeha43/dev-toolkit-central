@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/layout/ToolLayout";
@@ -188,36 +187,13 @@ const ColorPicker = () => {
   );
 
   return (
-    <>
-      <Helmet>
-        <title>Color Picker – Dev Toolkit Central</title>
-        <meta
-          name="description"
-          content="Pick and convert colors online easily with our free Color Picker tool."
-        />
-        <link
-          rel="canonical"
-          href="https://dev-toolkit-central.pages.dev/color-picker"
-        />
-        <meta property="og:title" content="Color Picker – Dev Toolkit Central" />
-        <meta
-          property="og:description"
-          content="Pick and convert colors online easily with our free Color Picker tool."
-        />
-        <meta
-          property="og:url"
-          content="https://dev-toolkit-central.pages.dev/color-picker"
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      <ToolLayout
-        title="Color Picker"
-        description="Pick colors and convert between HEX, RGB, HSL, and CMYK formats"
-        inputSection={inputSection}
-        output={output}
-        outputLabel="Color Formats"
-      />
-    </>
+    <ToolLayout
+      title="Color Picker"
+      description="Pick colors and convert between HEX, RGB, HSL, and CMYK formats"
+      inputSection={inputSection}
+      output={output}
+      outputLabel="Color Formats"
+    />
   );
 };
 
