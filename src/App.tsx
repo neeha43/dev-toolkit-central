@@ -34,6 +34,7 @@ const App = () => (
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
 
+            <Route path="/tools" element={<Home />} />
             {/* Tool Pages */}
             <Route path="/json-formatter" element={<JsonFormatterPage />} />
             <Route path="/base64-encoder-decoder" element={<Base64Page />} />
