@@ -1,18 +1,7 @@
 User-agent: *
 Allow: /
 
-# Optional: allow Googlebot to fetch static resources (JS, CSS, images)
 User-agent: Googlebot
-Allow: /js/
-Allow: /css/
-Allow: /assets/
+Allow: /
 
-# Disallow crawling of source code folders (if somehow exposed)
-Disallow: /src/
-Disallow: /components/
-Disallow: /hooks/
-Disallow: /lib/
-Disallow: /pages/
-
-# Sitemap
 Sitemap: https://dev-toolkit-central.pages.dev/sitemap.xml
