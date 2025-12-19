@@ -13,25 +13,27 @@ interface ToolsGridProps {
 }
 
 const ToolsGrid: React.FC<ToolsGridProps> = ({ tools }) => (
-  <div className="grid gap-4 sm:gap-6 lg:gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mx-auto">
-    {tools.map((tool) => (
-      <div
-        key={tool.path}
-        className="group relative bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105 p-4 sm:p-6 flex flex-col justify-between"
-      >
-        <div className="text-4xl mb-4">{tool.icon}</div>
-        <h2 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition">
-          {tool.title}
-        </h2>
-        <p className="text-gray-600 mb-4 sm:mb-6">{tool.desc}</p>
-        <RouterLink
-          to={tool.path}
-          className="mt-auto inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center font-medium shadow-sm hover:shadow-md transition"
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+      {tools.map((tool) => (
+        <div
+          key={tool.path}
+          className="group relative bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 hover:scale-105 p-4 sm:p-6 flex flex-col justify-between"
         >
-          Open Tool →
-        </RouterLink>
-      </div>
-    ))}
+          <div className="text-4xl mb-4">{tool.icon}</div>
+          <h2 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-blue-600 transition">
+            {tool.title}
+          </h2>
+          <p className="text-gray-600 mb-4 sm:mb-6">{tool.desc}</p>
+          <RouterLink
+            to={tool.path}
+            className="mt-auto inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-center font-medium shadow-sm hover:shadow-md transition"
+          >
+            Open Tool →
+          </RouterLink>
+        </div>
+      ))}
+    </div>
   </div>
 );
 
