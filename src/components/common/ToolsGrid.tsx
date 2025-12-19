@@ -13,7 +13,7 @@ interface ToolsGridProps {
 }
 
 const ToolsGrid: React.FC<ToolsGridProps> = ({ tools }) => (
-  <div className="lg:col-span-3 grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+  <div className="grid gap-4 sm:gap-6 lg:gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mx-auto">
     {tools.map((tool) => (
       <div
         key={tool.path}
