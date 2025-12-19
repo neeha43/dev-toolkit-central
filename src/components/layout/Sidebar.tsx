@@ -3,7 +3,7 @@ import React from "react";
 const Sidebar = () => (
   <div className="lg:col-span-1 flex flex-col gap-4 sm:gap-6">
     <div className="lg:sticky lg:top-24 flex flex-col gap-4">
-      {/* DESKTOP ONLY BUTTON */}
+      {/* DESKTOP ONLY BUTTON
       <div className="hidden lg:block bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center transition-shadow duration-300 hover:shadow-lg">
         <h3 className="font-semibold mb-2 text-gray-800">Support Me</h3>
         <a
@@ -14,7 +14,7 @@ const Sidebar = () => (
         >
           Buy Me a Coffee ☕
         </a>
-      </div>
+      </div>*/}
 
       {/* Advertisement */}
       <div className="bg-white border border-gray-200 rounded-xl shadow-md p-4 text-center mt-4 sm:mt-6 transition-shadow duration-300 hover:shadow-lg">
