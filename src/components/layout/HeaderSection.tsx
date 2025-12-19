@@ -11,7 +11,7 @@ const HeaderSection = () => (
     </p>
 
     {/* MOBILE ONLY BUTTON */}
-    <div className="block lg:hidden mt-2">
+    {/*<div className="block lg:hidden mt-2">
       <a
         href="https://buymeacoffee.com/neeharikakv"
         target="_blank"
@@ -21,7 +21,7 @@ const HeaderSection = () => (
         <FaCoffee className="w-4 h-4 sm:w-5 sm:h-5" />
         <span className="font-semibold">Buy Me a Coffee</span>
       </a>
-    </div>
+    </div>*/}
   </div>
 );
 
