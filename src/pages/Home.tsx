@@ -52,7 +52,7 @@ const Home = () => {
       <div className="relative flex flex-col min-h-screen">
         <main className="max-w-7xl mx-auto px-4 py-4 sm:py-6 md:py-12">
           <HeaderSection />
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 sm:gap-8 mx-auto">
             <ToolsGrid tools={tools} />
             {/*<Sidebar />*/}
           </div>
