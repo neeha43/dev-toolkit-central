@@ -13,8 +13,8 @@ interface ToolsGridProps {
 }
 
 const ToolsGrid: React.FC<ToolsGridProps> = ({ tools }) => (
-  <div className="max-w-7xl mx-auto px-4">
-    <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+  <div className="w-full flex justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-[1400px]">
       {tools.map((tool) => (
         <div
           key={tool.path}
