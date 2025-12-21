@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID Generator – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description"
+    content="Generate universally unique identifiers (UUIDs) instantly with our free UUID Generator tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/uuid-generator">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="UUID Generator – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Generate universally unique identifiers (UUIDs) instantly with our free UUID Generator tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/uuid-generator">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UUID Generator – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Generate universally unique identifiers (UUIDs) instantly with our free UUID Generator tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is UUID Generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "UUID Generator creates globally unique identifiers instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why use UUIDs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "UUIDs are useful for database IDs, tokens, and ensuring uniqueness across systems." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">UUID Generator</h1>
+    <button onclick="generateUUID()">Generate UUID</button>
+    <pre id="uuidOutput" class="output-box mt-4"></pre>
+  </main>
+
+  <script>
+    function generateUUID() {
+      const uuid = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      );
+      document.getElementById('uuidOutput').textContent = uuid;
+    }
+  </script>
+</body>
+
+</html>

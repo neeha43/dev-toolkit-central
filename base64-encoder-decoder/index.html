@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Encoder & Decoder – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description"
+    content="Encode and decode text or files to Base64 format instantly with our free Base64 Encoder & Decoder tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/base64-encoder-decoder">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Base64 Encoder & Decoder – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Encode and decode text or files to Base64 format instantly with our free Base64 Encoder & Decoder tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/base64-encoder-decoder">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Base64 Encoder & Decoder – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Encode and decode text or files to Base64 format instantly with our free Base64 Encoder & Decoder tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Base64 Encoder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Base64 Encoder converts text or files into Base64 format instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Base64 Decoder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Base64 Decoder converts Base64 encoded text or files back into their original format instantly in your browser." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">Base64 Encoder/Decoder</h1>
+    <textarea id="b64Input" placeholder="Enter text or Base64..." class="code-textarea"></textarea>
+    <div class="button-group">
+      <button onclick="encodeBase64()">Encode</button>
+      <button onclick="decodeBase64()">Decode</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <pre id="b64Output" class="output-box"></pre>
+  </main>
+
+  <script>
+    const b64Input = document.getElementById('b64Input');
+    const b64Output = document.getElementById('b64Output');
+
+    function encodeBase64() {
+      try {
+        b64Output.textContent = btoa(b64Input.value);
+      } catch (e) {
+        b64Output.textContent = 'Error: ' + e.message;
+      }
+    }
+
+    function decodeBase64() {
+      try {
+        b64Output.textContent = atob(b64Input.value);
+      } catch (e) {
+        b64Output.textContent = 'Invalid Base64: ' + e.message;
+      }
+    }
+
+    function clearAll() {
+      b64Input.value = '';
+      b64Output.textContent = '';
+    }
+  </script>
+</body>
+
+</html>

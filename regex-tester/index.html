@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex Tester – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description"
+    content="Test and validate your regular expressions (regex) instantly with our free Regex Tester tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/regex-tester">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Regex Tester – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Test and validate your regular expressions (regex) instantly with our free Regex Tester tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/regex-tester">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Regex Tester – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Test and validate your regular expressions (regex) instantly with our free Regex Tester tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Regex Tester?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Regex Tester helps you test, debug, and validate regular expressions instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I test multiple patterns?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can test multiple patterns and see real-time matches." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">Regex Tester</h1>
+    <textarea id="regexInput" placeholder="Enter text..." class="code-textarea"></textarea>
+    <input type="text" id="regexPattern" placeholder="Enter regex pattern..." class="code-textarea">
+    <div class="button-group">
+      <button onclick="testRegex()">Test</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <pre id="regexOutput" class="output-box"></pre>
+  </main>
+
+  <script>
+    const regexInput = document.getElementById('regexInput');
+    const regexPattern = document.getElementById('regexPattern');
+    const regexOutput = document.getElementById('regexOutput');
+
+    function testRegex() {
+      try {
+        const pattern = new RegExp(regexPattern.value, 'g');
+        const matches = regexInput.value.match(pattern);
+        regexOutput.textContent = matches ? matches.join('\\n') : 'No matches found';
+      } catch (e) {
+        regexOutput.textContent = 'Error: ' + e.message;
+      }
+    }
+
+    function clearAll() {
+      regexInput.value = '';
+      regexPattern.value = '';
+      regexOutput.textContent = '';
+    }
+  </script>
+</body>
+
+</html>

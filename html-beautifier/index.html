@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Beautifier – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description" content="Beautify and format messy HTML code instantly using our free HTML Beautifier tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/html-beautifier">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="HTML Beautifier – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Beautify and format messy HTML code instantly using our free HTML Beautifier tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/html-beautifier">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HTML Beautifier – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Beautify and format messy HTML code instantly using our free HTML Beautifier tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is HTML Beautifier?",
+        "acceptedAnswer": { "@type": "Answer", "text": "HTML Beautifier formats messy or minified HTML code into a readable structure instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it modify my code?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, it only formats the code; your HTML structure remains unchanged." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">HTML Beautifier</h1>
+    <textarea id="htmlInput" placeholder="Paste HTML code here..." class="code-textarea"></textarea>
+    <button onclick="beautifyHTML()">Beautify</button>
+    <button onclick="clearAll()">Clear</button>
+    <pre id="htmlOutput" class="output-box mt-4"></pre>
+  </main>
+
+  <script>
+    function beautifyHTML() {
+      const input = document.getElementById('htmlInput').value;
+      const output = html_beautify(input);
+      document.getElementById('htmlOutput').textContent = output;
+    }
+
+    function clearAll() {
+      document.getElementById('htmlInput').value = '';
+      document.getElementById('htmlOutput').textContent = '';
+    }
+  </script>
+</body>
+
+</html>

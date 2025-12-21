@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Beautifier – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description" content="Format and beautify your CSS code instantly using our free CSS Beautifier tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/css-beautifier">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="CSS Beautifier – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Format and beautify your CSS code instantly using our free CSS Beautifier tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/css-beautifier">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Beautifier – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Format and beautify your CSS code instantly using our free CSS Beautifier tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is CSS Beautifier?",
+        "acceptedAnswer": { "@type": "Answer", "text": "CSS Beautifier formats and beautifies messy or minified CSS code instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it change my styles?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, it only formats the code; the styles remain unchanged." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">CSS Beautifier</h1>
+    <textarea id="cssInput" placeholder="Paste CSS code here..." class="code-textarea"></textarea>
+    <button onclick="beautifyCSS()">Beautify</button>
+    <button onclick="clearAll()">Clear</button>
+    <pre id="cssOutput" class="output-box mt-4"></pre>
+  </main>
+
+  <script>
+    function beautifyCSS() {
+      const input = document.getElementById('cssInput').value;
+      const output = css_beautify(input);
+      document.getElementById('cssOutput').textContent = output;
+    }
+
+    function clearAll() {
+      document.getElementById('cssInput').value = '';
+      document.getElementById('cssOutput').textContent = '';
+    }
+  </script>
+</body>
+
+</html>

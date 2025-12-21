@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Encoder – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description"
+    content="Encode URLs safely for use in browsers or applications instantly using our free URL Encoder tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/url-encoder">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="URL Encoder – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Encode URLs safely for use in browsers or applications instantly using our free URL Encoder tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/url-encoder">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="URL Encoder – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Encode URLs safely for use in browsers or applications instantly using our free URL Encoder tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a URL Encoder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "URL Encoder converts text and special characters into URL-safe format." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why use URL Encoder?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It ensures URLs are correctly interpreted by browsers and web servers." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">URL Encoder/Decoder</h1>
+    <textarea id="urlInput" placeholder="Enter URL..." class="code-textarea"></textarea>
+    <div class="button-group">
+      <button onclick="encodeURL()">Encode</button>
+      <button onclick="decodeURL()">Decode</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <pre id="urlOutput" class="output-box"></pre>
+  </main>
+
+  <script>
+    const urlInput = document.getElementById('urlInput');
+    const urlOutput = document.getElementById('urlOutput');
+
+    function encodeURL() {
+      try {
+        urlOutput.textContent = encodeURIComponent(urlInput.value);
+      } catch (e) {
+        urlOutput.textContent = 'Error: ' + e.message;
+      }
+    }
+
+    function decodeURL() {
+      try {
+        urlOutput.textContent = decodeURIComponent(urlInput.value);
+      } catch (e) {
+        urlOutput.textContent = 'Invalid URL: ' + e.message;
+      }
+    }
+
+    function clearAll() {
+      urlInput.value = '';
+      urlOutput.textContent = '';
+    }
+  </script>
+</body>
+
+</html>

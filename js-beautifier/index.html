@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Beautifier – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description"
+    content="Format and beautify your JavaScript code instantly with our free JS Beautifier tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/js-beautifier">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="JS Beautifier – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Format and beautify your JavaScript code instantly with our free JS Beautifier tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/js-beautifier">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JS Beautifier – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Format and beautify your JavaScript code instantly with our free JS Beautifier tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is JS Beautifier?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JS Beautifier formats and beautifies messy or minified JavaScript code instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it modify my scripts?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, it only formats the code; your scripts remain unchanged." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">JS Beautifier</h1>
+    <textarea id="jsInput" placeholder="Paste JS code here..." class="code-textarea"></textarea>
+    <button onclick="beautifyJS()">Beautify</button>
+    <button onclick="clearAll()">Clear</button>
+    <pre id="jsOutput" class="output-box mt-4"></pre>
+  </main>
+
+  <script>
+    function beautifyJS() {
+      const input = document.getElementById('jsInput').value;
+      const output = js_beautify(input);
+      document.getElementById('jsOutput').textContent = output;
+    }
+
+    function clearAll() {
+      document.getElementById('jsInput').value = '';
+      document.getElementById('jsOutput').textContent = '';
+    }
+  </script>
+</body>
+
+</html>

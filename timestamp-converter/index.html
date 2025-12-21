@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timestamp Converter – Free Online Tool | Dev Toolkit Central</title>
+  <meta name="description"
+    content="Convert UNIX timestamps to human-readable dates and vice versa instantly with our Timestamp Converter tool.">
+  <link rel="canonical" href="https://dev-toolkit-central.pages.dev/timestamp-converter">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Timestamp Converter – Free Online Tool | Dev Toolkit Central">
+  <meta property="og:description"
+    content="Convert UNIX timestamps to human-readable dates and vice versa instantly with our Timestamp Converter tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dev-toolkit-central.pages.dev/timestamp-converter">
+  <meta property="og:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Timestamp Converter – Free Online Tool | Dev Toolkit Central">
+  <meta name="twitter:description"
+    content="Convert UNIX timestamps to human-readable dates and vice versa instantly with our Timestamp Converter tool.">
+  <meta name="twitter:image" content="https://dev-toolkit-central.pages.dev/og-image.png">
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Timestamp Converter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Timestamp Converter converts UNIX timestamps to human-readable dates and vice versa instantly in your browser." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, all conversions happen locally in your browser; no data is sent to any server." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+    <h1 class="text-3xl font-bold mb-6">Timestamp Converter</h1>
+    <input type="number" id="timestampInput" placeholder="Enter UNIX timestamp">
+    <div class="button-group">
+      <button onclick="toDate()">To Date</button>
+      <button onclick="toTimestamp()">To Timestamp</button>
+      <button onclick="clearAll()">Clear</button>
+    </div>
+    <pre id="timestampOutput" class="output-box"></pre>
+  </main>
+
+  <script>
+    function toDate() {
+      const ts = Number(document.getElementById('timestampInput').value);
+      if (!isNaN(ts)) {
+        const d = new Date(ts * 1000);
+        document.getElementById('timestampOutput').textContent = d.toString();
+      } else {
+        document.getElementById('timestampOutput').textContent = 'Invalid timestamp';
+      }
+    }
+
+    function toTimestamp() {
+      const d = new Date(document.getElementById('timestampInput').value);
+      if (!isNaN(d.getTime())) {
+        document.getElementById('timestampOutput').textContent = Math.floor(d.getTime() / 1000);
+      } else {
+        document.getElementById('timestampOutput').textContent = 'Invalid date';
+      }
+    }
+
+    function clearAll() {
+      document.getElementById('timestampInput').value = '';
+      document.getElementById('timestampOutput').textContent = '';
+    }
+  </script>
+</body>
+
+</html>
