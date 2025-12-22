@@ -44,47 +44,54 @@
   }
   </script>
 
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <main class="max-w-4xl mx-auto px-4 py-10">
-    <a href="../index.html" class="back-link">← Back to Home</a>
-    <h1 class="text-3xl font-bold mb-6">Base64 Encoder/Decoder</h1>
-    <textarea id="b64Input" placeholder="Enter text or Base64..." class="code-textarea"></textarea>
-    <div class="button-group">
-      <button onclick="encodeBase64()">Encode</button>
-      <button onclick="decodeBase64()">Decode</button>
-      <button onclick="clearAll()">Clear</button>
+
+  <div class="tool-container">
+    <h1>Base64 Encoder / Decoder</h1>
+    <p class="subtitle">
+      Encode text or files to Base64 and decode Base64 back to original content
+    </p>
+
+    <!-- Mode Switch -->
+    <div class="mode-switch">
+      <button id="textModeBtn" class="btn active" onclick="setMode('text')">
+        Text
+      </button>
+      <button id="fileModeBtn" class="btn" onclick="setMode('file')">
+        File
+      </button>
     </div>
-    <pre id="b64Output" class="output-box"></pre>
-  </main>
 
-  <script>
-    const b64Input = document.getElementById('b64Input');
-    const b64Output = document.getElementById('b64Output');
+    <!-- TEXT MODE -->
+    <div id="textMode">
+      <label>Text / Base64 Input</label>
+      <textarea id="textInput" placeholder="Enter text to encode or Base64 to decode..."></textarea>
 
-    function encodeBase64() {
-      try {
-        b64Output.textContent = btoa(b64Input.value);
-      } catch (e) {
-        b64Output.textContent = 'Error: ' + e.message;
-      }
-    }
+      <div class="buttons">
+        <button class="btn primary" onclick="encode()">Encode</button>
+        <button class="btn" onclick="decode()">Decode</button>
+        <button class="btn outline" onclick="clearAll()">Clear</button>
+      </div>
+    </div>
 
-    function decodeBase64() {
-      try {
-        b64Output.textContent = atob(b64Input.value);
-      } catch (e) {
-        b64Output.textContent = 'Invalid Base64: ' + e.message;
-      }
-    }
+    <!-- FILE MODE -->
+    <div id="fileMode" class="hidden">
+      <label>Upload File</label>
 
-    function clearAll() {
-      b64Input.value = '';
-      b64Output.textContent = '';
-    }
-  </script>
+      <div class="file-upload">
+        <input type="file" id="fileInput" />
+        <p>Click to upload a file<br /><span>Supports any file type</span></p>
+      </div>
+    </div>
+
+    <label>Result</label>
+    <textarea id="output" readonly></textarea>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

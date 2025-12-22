@@ -44,47 +44,55 @@
   }
   </script>
 
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <main class="max-w-4xl mx-auto px-4 py-10">
-    <a href="../index.html" class="back-link">← Back to Home</a>
-    <h1 class="text-3xl font-bold mb-6">Timestamp Converter</h1>
-    <input type="number" id="timestampInput" placeholder="Enter UNIX timestamp">
-    <div class="button-group">
-      <button onclick="toDate()">To Date</button>
-      <button onclick="toTimestamp()">To Timestamp</button>
-      <button onclick="clearAll()">Clear</button>
+
+  <div class="tool-container">
+    <h1>Timestamp Converter</h1>
+    <p class="subtitle">
+      Convert between Unix timestamps and human-readable dates
+    </p>
+
+    <!-- Current Time -->
+    <div class="current-time">
+      <p class="label">Current Unix Timestamp</p>
+      <p id="currentTimestamp" class="timestamp"></p>
+      <p id="currentDate" class="date"></p>
     </div>
-    <pre id="timestampOutput" class="output-box"></pre>
-  </main>
 
-  <script>
-    function toDate() {
-      const ts = Number(document.getElementById('timestampInput').value);
-      if (!isNaN(ts)) {
-        const d = new Date(ts * 1000);
-        document.getElementById('timestampOutput').textContent = d.toString();
-      } else {
-        document.getElementById('timestampOutput').textContent = 'Invalid timestamp';
-      }
-    }
+    <!-- Timestamp Input -->
+    <label>Unix Timestamp</label>
+    <div class="row">
+      <input type="text" id="timestampInput" placeholder="1702300800 or 1702300800000" />
+      <button class="btn icon" onclick="useCurrentTime()">⏱</button>
+    </div>
+    <p class="hint">Supports both seconds and milliseconds</p>
 
-    function toTimestamp() {
-      const d = new Date(document.getElementById('timestampInput').value);
-      if (!isNaN(d.getTime())) {
-        document.getElementById('timestampOutput').textContent = Math.floor(d.getTime() / 1000);
-      } else {
-        document.getElementById('timestampOutput').textContent = 'Invalid date';
-      }
-    }
+    <button class="btn primary full" onclick="convertTimestamp()">
+      Convert Timestamp
+    </button>
 
-    function clearAll() {
-      document.getElementById('timestampInput').value = '';
-      document.getElementById('timestampOutput').textContent = '';
-    }
-  </script>
+    <hr />
+
+    <!-- Date Input -->
+    <label>Date / Time Input</label>
+    <input type="datetime-local" id="dateInput" />
+
+    <button class="btn full" onclick="convertDate()">
+      Convert Date to Timestamp
+    </button>
+
+    <button class="btn outline full" onclick="clearAll()">
+      Clear All
+    </button>
+
+    <label>Converted Result</label>
+    <textarea id="output" readonly></textarea>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

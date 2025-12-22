@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 40px 16px;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.tool-container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1 {
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin: 18px 0 6px;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+textarea {
+  height: 200px;
+  font-family: ui-monospace, monospace;
+}
+
+.regex-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.regex-row input:first-of-type {
+  flex: 1;
+}
+
+.regex-row input:last-of-type {
+  width: 70px;
+  text-align: center;
+}
+
+.slash {
+  font-weight: bold;
+  color: #64748b;
+}
+
+.flag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flag-group button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  cursor: pointer;
+}
+
+.flag-group button.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #e5e7eb;
+}
+
+button.primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+}
+
+button.outline {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+}
+
+button:hover {
+  opacity: 0.9;
+}

@@ -44,43 +44,52 @@
   }
   </script>
 
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <main class="max-w-4xl mx-auto px-4 py-10">
-    <a href="../index.html" class="back-link">← Back to Home</a>
-    <h1 class="text-3xl font-bold mb-6">Regex Tester</h1>
-    <textarea id="regexInput" placeholder="Enter text..." class="code-textarea"></textarea>
-    <input type="text" id="regexPattern" placeholder="Enter regex pattern..." class="code-textarea">
-    <div class="button-group">
-      <button onclick="testRegex()">Test</button>
-      <button onclick="clearAll()">Clear</button>
+
+  <div class="tool-container">
+    <h1>Regex Tester</h1>
+    <p class="subtitle">
+      Test and debug regular expressions with real-time matching and capture groups
+    </p>
+
+    <!-- Pattern -->
+    <label>Regex Pattern</label>
+    <div class="regex-row">
+      <span class="slash">/</span>
+      <input id="pattern" placeholder="Enter regex pattern..." />
+      <span class="slash">/</span>
+      <input id="flags" value="g" maxlength="4" />
     </div>
-    <pre id="regexOutput" class="output-box"></pre>
-  </main>
 
-  <script>
-    const regexInput = document.getElementById('regexInput');
-    const regexPattern = document.getElementById('regexPattern');
-    const regexOutput = document.getElementById('regexOutput');
+    <!-- Flags -->
+    <label>Flags</label>
+    <div class="flag-group">
+      <button onclick="toggleFlag('g')" id="flag-g">g Global</button>
+      <button onclick="toggleFlag('i')" id="flag-i">i Ignore Case</button>
+      <button onclick="toggleFlag('m')" id="flag-m">m Multiline</button>
+      <button onclick="toggleFlag('s')" id="flag-s">s Dotall</button>
+    </div>
 
-    function testRegex() {
-      try {
-        const pattern = new RegExp(regexPattern.value, 'g');
-        const matches = regexInput.value.match(pattern);
-        regexOutput.textContent = matches ? matches.join('\\n') : 'No matches found';
-      } catch (e) {
-        regexOutput.textContent = 'Error: ' + e.message;
-      }
-    }
+    <!-- Test String -->
+    <label>Test String</label>
+    <textarea id="testString" placeholder="Enter text to test against the pattern..."></textarea>
 
-    function clearAll() {
-      regexInput.value = '';
-      regexPattern.value = '';
-      regexOutput.textContent = '';
-    }
-  </script>
+    <!-- Actions -->
+    <div class="actions">
+      <button class="primary" onclick="testRegex()">Test</button>
+      <button onclick="replaceMatches()">Replace</button>
+      <button class="outline" onclick="clearAll()">Clear</button>
+    </div>
+
+    <!-- Output -->
+    <label>Results</label>
+    <textarea id="output" readonly></textarea>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

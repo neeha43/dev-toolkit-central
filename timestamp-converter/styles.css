@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 40px 16px;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.tool-container {
+  max-width: 900px;
+  margin: auto;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin-bottom: 24px;
+  color: #64748b;
+}
+
+label {
+  display: block;
+  margin: 18px 0 6px;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+textarea {
+  height: 260px;
+  font-family: ui-monospace, monospace;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #e5e7eb;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+}
+
+.btn.full {
+  width: 100%;
+}
+
+.btn.icon {
+  padding: 0 14px;
+  font-size: 18px;
+}
+
+.current-time {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.current-time .label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.current-time .timestamp {
+  font-size: 22px;
+  font-family: ui-monospace, monospace;
+  color: #2563eb;
+}
+
+.current-time .date {
+  font-size: 12px;
+  color: #64748b;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 24px 0;
+}

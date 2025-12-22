@@ -1,0 +1,131 @@
+:root {
+  --bg: #0f172a;
+  --card: #020617;
+  --border: #1e293b;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #00d4ff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.tool {
+  max-width: 900px;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .tool {
+    grid-template-columns: 1fr;
+  }
+}
+
+h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.description {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+label {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.picker-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+input[type="color"] {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.color-preview {
+  flex: 1;
+  height: 80px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #020617;
+  color: var(--text);
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preset {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.preset:hover {
+  transform: scale(1.15);
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #00d4ff, #3b82f6);
+  color: #000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.output-section pre {
+  background: #020617;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
